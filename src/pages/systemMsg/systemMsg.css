@@ -1,0 +1,30 @@
+.systemMsg{
+    padding-top: 1.49rem;
+}
+
+.systemMsg .msg-list{
+    font-size: 0.38rem;
+    color: #282828;
+    background-color: #fff;
+}
+
+.systemMsg .msg-list .item{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0.35rem;
+    height: 1.8rem;
+    border-bottom: 1px solid #dbdbdb;
+    background: url('../../static/go.png') no-repeat 10.2rem center;
+    background-size: 0.28rem 0.45rem;
+
+}
+.systemMsg .msg-list .item .avatar{
+    margin-right: 0.36rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: hotpink;
+}
+.systemMsg .msg-list .item .info{}

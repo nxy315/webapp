@@ -1,0 +1,85 @@
+.myCards{
+    padding-top: 1.74rem;
+}
+
+.myCards .addCards{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 10.4rem;
+    height: 2.4rem;
+    background-color: #fff;
+    border: 1px dashed #999;
+    border-radius: 0.15rem;
+}
+.myCards .addCards .t1{
+    height: 0.6rem;
+    line-height: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: lighter;
+}
+.myCards .addCards .t2{
+    font-size: 0.4rem;
+}
+
+.myCards .cards{
+    margin: 0 auto;
+    width: 10.4rem;
+}
+.myCards .cards .card{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 0.2rem;
+    padding: 0 0.76rem;
+    width: 10.4rem;
+    height: 3.8rem;
+    background-color: #ff484b;
+    border-radius: 0.15rem;
+}
+
+.myCards .cards .card .info{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 0.7rem;
+    height: 1.2rem;
+}
+.myCards .cards .card .info .cover{
+    width: 1.2rem;
+    height: 1.2rem;
+    background-color: #fff;
+    border-radius: 50%;
+}
+.myCards .cards .card .info .des{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 0.23rem;
+}
+.myCards .cards .card .info .des .title{
+    font-size: 0.5rem;
+    color: #fff;
+}
+.myCards .cards .card .info .des .type{
+    font-size: 0.3rem;
+    color: rgba(255,255,255,0.6);
+}
+.myCards .cards .card .num{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 0.6rem;
+    font-size: 0.6rem;
+}
+.myCards .cards .card .num .item{
+    color: rgba(255,255,255,0.6);
+}
+.myCards .cards .card .num .item.tail{
+    color: #fff;
+}

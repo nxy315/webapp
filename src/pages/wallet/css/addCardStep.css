@@ -1,0 +1,116 @@
+.addCardStep{
+    padding-top: 1.36rem;
+}
+.addCardStep .title{
+    margin-top: 0.2rem;
+    padding-left: 0.43rem;
+    height: 0.98rem;
+    line-height: 0.98rem;
+    font-size: 0.38rem;
+    color: #808080;
+}
+.addCardStep .step-box{
+    margin-bottom: 1.1rem;
+    background-color: #fff;
+}
+.addCardStep .step-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0.43rem;
+    height: 1.4rem;
+    background-color: #fff;
+    border-bottom: 1px solid #dbdbdb;
+}
+.addCardStep .step-item span{
+    display: block;
+    margin-right: 0.52rem;
+    font-size: 0.42rem;
+}
+.addCardStep .step-item input{
+    flex: 1;
+    font-size: 0.42rem;
+}
+.addCardStep .wrap{
+    margin-top: 0.52rem;
+    margin-bottom: 1rem;
+    padding-left: 0.42rem;
+    font-size: 0.4rem;
+}
+.addCardStep .wrap .remeber{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.addCardStep .wrap .remeber .remeberBox{
+    box-sizing: border-box;
+    margin-right: 0.37rem;
+    width: 0.62rem;
+    height: 0.62rem;
+    border: 0.01rem solid #999999;
+    background-color: #fff;
+    border-radius: 0.04rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0.42rem auto;
+}
+.addCardStep .wrap .remeber.active .remeberBox{
+    background-image: url("../images/right.png");
+}
+
+.addCardStep .step3-des{
+    margin-top: 0.2rem;
+    margin-bottom: 0.53rem;
+    padding-left: 0.43rem;
+    line-height: 0.6rem;
+    font-size: 0.38rem;
+    color: #808080;
+}
+.addCardStep .step3-box{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 1.05rem;
+    padding: 0 0.5rem;
+    height: 1.4rem;
+    line-height: 1.4rem;
+    background-color: #fff;
+}
+.addCardStep .step3-box .input{
+    width: 5.3rem;
+    font-size: 0.42rem;
+}
+.addCardStep .step3-box .getCode{
+    flex: 1;
+    padding-left: 1.28rem;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    color: #333;
+    font-size: 0.42rem;
+    border-left: 1px solid #ccc;
+}
+
+
+.addCardStep .nextStep{
+    display: block;
+    margin: 0 auto;
+    width: 8rem;
+    height: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    font-size: 0.4rem;
+    color: #fff;
+    border-radius: 0.04rem;
+    font-weight: lighter;
+}
+.addCardStep .nextStepDisable{
+    background-color: #dbdbdb;
+}
+
+.addCardStep .nextStepAble{
+    background-color: #fd2754;
+}

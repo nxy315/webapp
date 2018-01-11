@@ -1,0 +1,140 @@
+.login-wrap{
+    box-sizing: border-box;
+    padding-top: 1.36rem;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, #fde9fa, #fff5de);
+}
+
+/*.login-wrap .header{*/
+    /*padding: 0 0.5rem;*/
+    /*height: 1.2rem;*/
+    /*background-color: #fff;*/
+    /*font-size: 0.4rem;*/
+/*}*/
+/*.login-wrap .header .backbtn{*/
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*justify-content: flex-start;*/
+    /*align-items: center;*/
+    /*height: 100%;*/
+/*}*/
+/*.login-wrap .header .backbtn .back-icon{*/
+    /*margin-right: 0.45rem;*/
+    /*width: 0.53rem;*/
+    /*height: 0.5rem;*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: center;*/
+    /*background-size: contain;*/
+/*}*/
+.login-wrap .login-logo-wrap{
+    box-sizing: border-box;
+    padding: 1.28rem 0;
+    height: 8.2rem;
+    background-image: url("../images/bg.png");
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.login-wrap .login-logo-wrap .login-logo{
+    width: 2.56rem;
+    height: 2.56rem;
+    background-image: url("../images/logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.login-wrap .login-logo-wrap .login-text{
+    margin-bottom: 0.4rem;
+    width: 2.45rem;
+    height: 1.28rem;
+    background-image: url("../images/logo_text.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.login-wrap .login-logo-wrap .login-des{
+    width: 6.94rem;
+    height: 0.7rem;
+    background-image: url("../images/logo_des.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.login-wrap .input-box{
+    margin: 0 auto 0.6rem;
+    width: 9rem;
+    background-color: #fff;
+    border-radius: 0.1rem;
+    box-shadow: 0.02rem 0.03rem 0.2rem  0.03rem #ffe7da;
+}
+.login-wrap .input-box .input-item{
+    height: 1.4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e6e6e6;
+}
+.login-wrap .input-box .input-item:last-child{
+    border: none;
+}
+.login-wrap .input-box .input-item .input-icon{
+    width: 1.24rem;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0.6rem auto;
+}
+.login-wrap .input-box .input-item input{
+    font-size: 0.42rem;
+    outline: none;
+    flex: 1;
+}
+.login-wrap .input-box .input-item input.code{
+    width: 3.6rem;
+}
+
+.login-wrap .input-box .input-item .getCode{
+    width: 4rem;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    text-align: center;
+    font-size: 0.4rem;
+    border-left: 1px solid #e6e6e6;
+}
+
+.login-wrap .pwd-opera{
+    margin: 0 auto;
+    width: 9rem;
+    font-size: 0.42rem;
+    color: #666;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.login-wrap .pwd-opera .rmber-pwd{
+
+}
+.login-wrap .pwd-opera .forget-pwd{
+
+}
+
+
+.login-wrap .login{
+    margin: 0.82rem auto 0;
+    width: 9rem;
+    height: 1.4rem;
+    line-height: 1.4rem;
+    text-align: center;
+    font-size: 0.54rem;
+    color: #fff;
+    border-radius: 0.1rem;
+    background-image: linear-gradient(to bottom right, #ff3f91, #ff4963);
+    box-shadow: 0 0.03rem 0.06rem 0.04rem #ffd5c4;
+}

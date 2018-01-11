@@ -1,0 +1,60 @@
+.userInfo{
+    padding-top: 1.36rem;
+}
+.userInfo .avator-wrap{
+    margin-bottom: 0.14rem;
+    padding: 0 0.45rem;
+    height: 2.2rem;
+    background-color: #fff;
+    border-bottom: 1px solid #e6e6e6;
+    font-size: 0.42rem;
+    color: #999;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.userInfo .avator-wrap .avator{
+    margin-right: 0.6rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    background-color: pink;
+}
+.userInfo .set-wrap{
+    font-size: 0.42rem;
+    background-color: #fff;
+    color: #282828;
+}
+.userInfo .set-wrap .set-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.4rem;
+    padding: 0 0.5rem;
+    border-bottom: 1px solid #e6e6e6;
+    color: #808080;
+}
+.userInfo .set-wrap .set-item .right-info{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.userInfo .set-wrap .set-item .right-info .name{
+    margin-right: 0.48rem;
+    color: #282828;
+}
+.userInfo .set-wrap .set-item .right-info .go{
+    width: 0.28rem;
+    height: 0.45rem;
+    background-image: url('../../../static/go.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.userInfo .set-wrap .set-item:last-child{
+    border: none;
+}

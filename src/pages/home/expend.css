@@ -1,0 +1,87 @@
+.expend{
+    box-sizing: border-box;
+    padding-top: 1.36rem;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    background-color: #fff;
+}
+.expend .cover{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 2.5rem;
+    background-color: #fd2754;
+    color: #fff;
+}
+.expend .cover .title{
+    margin-bottom: 0.36rem;
+    font-size: 0.36rem;
+}
+.expend .cover .count{
+    font-size: 0.52rem;
+}
+
+.expend .detail-list{
+    padding: 0.37rem 0;
+}
+.expend .detail-list .title{
+    margin-bottom: 0.5rem;
+    margin-left: 0.35rem;
+    padding-left: 0.28rem;
+    height: 0.38rem;
+    line-height: 0.38rem;
+    font-size: 0.36rem;
+    color: #333;
+    border-left: 0.08rem solid #fd2754;
+}
+.expend .detail-list .list{
+}
+.expend .detail-list .list .item{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.3rem 0.5rem;
+    height: 1.8rem;
+    border-bottom: 1px solid #e6e6e6;
+}
+.expend .detail-list .list .item .row1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.42rem;
+}
+.expend .detail-list .list .item .row1 .name{}
+.expend .detail-list .list .item .row1 .total{
+    color: #666;
+}
+.expend .detail-list .list .item .row2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.36rem;
+}
+.expend .detail-list .list .item .row2 .date{
+    color: #808080;
+}
+.expend .detail-list .list .item .row2 .detail{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.expend .detail-list .list .item .row2 .detail .coupon{
+    padding-right: 0.18rem;
+    color: #808080;
+}
+.expend .detail-list .list .item .row2 .detail .actual{
+    height: 0.36rem;
+    line-height: 0.36rem;
+    padding-left: 0.18rem;
+    color: #808080;
+    border-left: 1px solid #cdcdcd;
+}

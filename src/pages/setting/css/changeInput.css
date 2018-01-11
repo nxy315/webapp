@@ -1,0 +1,24 @@
+.changeWrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2.36rem;
+    padding: 0 0.5rem;
+    height: 1rem;
+    background-color: #fff;
+}
+
+.changeWrap .saveChange{
+    display: block;
+    height: 1.36rem;
+    line-height: 1.36rem;
+}
+
+.changeInput{
+    flex: 1;
+    height: 1rem;
+    outline: none;
+    border: none;
+    font-size: 0.42rem;
+}

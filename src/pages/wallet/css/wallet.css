@@ -1,0 +1,66 @@
+
+.account-wrap .cover-wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 6rem;
+    color: #fff;
+    background-color: #fd2754;
+}
+.account-wrap .cover-wrap .title{
+    font-size: 0.42rem;
+    color: #ffccd6;
+}
+.account-wrap .cover-wrap .count{
+    padding: 0.3rem 0 0.8rem;
+    font-size: 0.64rem;
+}
+.account-wrap .cover-wrap .get{
+    width: 3rem;
+    height: 0.88rem;
+    line-height: 0.88rem;
+    text-align: center;
+    border: 1px solid #fff;
+    border-radius: 0.44rem;
+    font-size: 0.4rem;
+    color: #fff;
+}
+
+.account-wrap .red-wrap{
+    position: relative;
+}
+.account-wrap .red-wrap .red{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 0.4rem;
+    height: 1.6rem;
+    background-color: #fff;
+    font-size: 0.48rem;
+}
+.account-wrap .red-wrap .menu-icon{
+    margin-right: 0.36rem;
+    width: 0.49rem;
+    height: 0.58rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.account-wrap .red-wrap .count{
+    position: absolute;
+    right: 1rem;
+    font-size: 0.44rem;
+    color: #ee105b;
+}
+.account-wrap .red-wrap .go-icon{
+    position: absolute;
+    right: 0.4rem;
+    top: 0.56rem;
+    width: 0.25rem;
+    height: 0.45rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}

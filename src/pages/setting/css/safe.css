@@ -1,0 +1,29 @@
+.safePage{
+    padding-top: 1.36rem;
+}
+
+.safePage .safe-wrap{
+    font-size: 0.42rem;
+    background-color: #fff;
+    color: #282828;
+}
+.safePage .safe-wrap .safe-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.4rem;
+    padding: 0 0.5rem;
+    border-bottom: 1px solid #e6e6e6;
+}
+.safePage .safe-wrap .safe-item .go{
+    width: 0.28rem;
+    height: 0.45rem;
+    background-image: url('../../../static/go.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.safePage .safe-wrap .safe-item:last-child{
+    border: none;
+}

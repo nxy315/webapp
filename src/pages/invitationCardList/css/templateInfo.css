@@ -1,0 +1,106 @@
+.templateInfo{
+    box-sizing: border-box;
+    padding-top: 1.36rem;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f0e6e8;
+}
+
+.templateInfo .bg-white-pd{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5rem 0 0.36rem;
+    height: 1.4rem;
+    background-color: #fff;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.templateInfo input{
+    flex: 1;
+    font-size: 0.4rem;
+    border: none;
+    outline: none;
+}
+.templateInfo .info-form{
+    font-size: 0.4rem;
+}
+.templateInfo .info-form .form1{
+}
+.templateInfo .info-form .right-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.templateInfo .info-form .go{
+    margin-left: 0.4rem;
+    width: 0.28rem;
+    height: 0.45rem;
+    background-image: url('../../../static/go.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.templateInfo .info-form .form2{
+}
+.templateInfo .info-form .form2 input{
+    text-align: right;
+}
+.templateInfo .info-form .form3{
+    height: 2.4rem;
+    flex-wrap: nowrap;
+}
+.templateInfo .info-form .form3 .name-wrap{
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.35rem 0 0.5rem;
+    height: 100%;
+}
+.templateInfo .info-form .form3 .name-wrap .name{
+    margin-bottom: 0.5rem;
+    padding-left: 0.6rem;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: auto 100%;
+}
+.templateInfo .info-form .form3 .name-wrap .name.boy{
+    color: #1b81ff;
+    background-image: url('../images/boy.png');
+}
+.templateInfo .info-form .form3 .name-wrap .name.girl{
+    background-image: url('../images/girl.png');
+}
+.templateInfo .info-form .form3 .name-wrap input{
+    flex: 0;
+    text-align: center;
+}
+
+.templateInfo .info-form .form4{
+}
+.templateInfo .info-form .form4 .date{
+    color: #cccccc;
+}
+
+.templateInfo .address{
+    margin-top: 0.15rem;
+    padding: 0 0 0 0.36rem;
+    font-size: 0.4rem;
+    height: 1.4rem;
+}
+
+.templateInfo .address input{
+    margin-left: 0.4rem;
+}
+
+.templateInfo .address .nail{
+    width: 2rem;
+    height: 100%;
+    background: url('../images/nail.png') no-repeat center;
+    background-size: 0.36rem 0.43rem;
+}

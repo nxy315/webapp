@@ -1,0 +1,190 @@
+.cover-wrap{
+    position: relative;
+    margin-bottom: 0.2rem;
+    padding-top: 1.2rem;
+}
+.cover-wrap .head-bar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3rem;
+    background-image: linear-gradient(to bottom,#fa4068,#fa80a4);
+}
+.cover-wrap .head-bar .set{
+    position: absolute;
+    left: 0.1rem;
+    top: 0.1rem;
+    width: 1rem;
+    height: 1rem;
+    background: url("../images/setting.png") no-repeat center;
+    background-size: 0.55rem;
+}
+.cover-wrap .head-bar .msg{
+    position: absolute;
+    right: 0.1rem;
+    top: 0.1rem;
+    width: 1rem;
+    height: 1rem;
+    background: url("../images/msg2.png") no-repeat center;
+    background-size: 0.55rem;
+}
+.cover-wrap .head-cover{
+    position: absolute;
+    left: 50%;
+    top: 0.2rem;
+    margin-left: -0.9rem;
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    /*background-color: pink;*/
+    /*border: 0.04rem solid #fff;*/
+    /*box-shadow: 0 0.02rem 0.06rem 0.03rem #fcc7ce;*/
+    z-index: 3;
+
+    background-image: url('../images/login_cover.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.user-cover{
+    position: relative;
+    margin: 0 auto;
+    padding: 1.18rem 0 0.4rem;
+    width: 10.3rem;
+    border-radius: 0.1rem;
+    background-repeat: no-repeat;
+    background-position: left -0.5rem;
+    background-size: 100% auto;
+    background-color: #fff;
+    z-index: 2;
+}
+.user-cover .name-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+.user-cover .name-info .nick-name{
+    font-size: 0.56rem;
+    font-weight: bold;
+    color: #333;
+}
+.user-cover .name-info .tel{
+    font-size: 0.34rem;
+    color: #999;
+}
+.user-cover .ofen-used{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+.user-cover .ofen-used .ofen{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 1.4rem;
+    font-size: 0.46rem;
+    border-right: 0.01rem solid #ffe0e7;
+}
+.user-cover .ofen-used .ofen .ofen-icon{
+    margin-right: 0.24rem;
+    width: 0.64rem;
+    height: 0.64rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.user-cover .ofen-used .ofen:last-child{
+    border: none;
+}
+
+.records{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto 0.2rem;
+    padding: 0.46rem 0 0.54rem;
+    width: 10.3rem;
+    background-color: #fff;
+    border-radius: 0.1rem;
+}
+.records .record{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    height: 2.4rem;
+    border-right: 0.01rem solid #ffe0e7;
+}
+.records .record:last-child{
+    border: none;
+}
+.records .record .record-icon{
+    margin-bottom: 0.2rem;
+    width: 1rem;
+    height: 1rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.records .record .record-title{
+    font-size: 0.42rem;
+    color: #1a1a1a;
+}
+
+.records .record .record-des{
+    font-size: 0.32rem;
+    color: #808080;
+}
+
+.menus{
+    margin: 0 auto;
+    width: 10.3rem;
+    background-color: #fff;
+    border-radius: 0.1rem;
+}
+.menus .menu{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 0.36rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    font-size: 0.42rem;
+    color: #333;
+    border-bottom: 0.01rem solid #ffe0e7;
+}
+.menus .menu:last-child{
+    border: none;
+}
+.menus .menu .menu-icon{
+    display: block;
+    margin-right: 0.35rem;
+    width: 0.44rem;
+    height: 0.44rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.menus .menu .go-icon{
+    position: absolute;
+    top: 0.53rem;
+    right: 0.36rem;
+    width: 0.25rem;
+    height: 0.45rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}

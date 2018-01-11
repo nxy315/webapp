@@ -1,0 +1,72 @@
+.about{
+    box-sizing: border-box;
+    padding-top: 2.86rem;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.about .logo{
+    margin-bottom: 0.3rem;
+    width: 2.56rem;
+    height: 2.56rem;
+    background: url("../../../static/logo.png") no-repeat center;
+    background-size: contain;
+}
+.about .logo-text{
+    margin-bottom: 1.2rem;
+    width: 2.45rem;
+    height: 1.28rem;
+    background-image: url("../../../static/logo_text.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.about .brief{
+    box-sizing: border-box;
+    margin: 0 auto 3.7rem;
+    padding: 0.7rem 0.5rem;
+    width: 9.8rem;
+    height: 5.6rem;
+    box-shadow: 0 0 0.5rem 0.1rem #f0efef;
+    border-radius: 0.26rem;
+}
+.about .brief h3{
+    position: relative;
+    margin-bottom: 0.9rem;
+    height: 0.42rem;
+    line-height: 0.42rem;
+    text-align: center;
+    font-size: 0.42rem;
+}
+.about .brief h3 span{
+    position: absolute;
+    bottom: -0.45rem;
+    left: 4rem;
+    width: 0.8rem;
+    height: 0.06rem;
+    background-color: #fd2754;
+}
+.about .brief p{
+    line-height: 0.7rem;
+    font-size: 0.36rem;
+}
+.about .foot{
+    text-align: center;
+    color: #b3b3b3;
+}
+.about .foot .name{
+    height: 0.36rem;
+    line-height: 0.36rem;
+    font-size: 0.36rem;
+}
+.about .foot .url{
+    height: 0.24rem;
+    line-height: 0.24rem;
+    font-size: 0.24rem;
+}

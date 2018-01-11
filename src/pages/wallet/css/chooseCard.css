@@ -1,0 +1,30 @@
+.chooseCard{
+    padding-top: 1.36rem;
+}
+.chooseCard .items{
+    background-color: #fff;
+}
+.chooseCard .item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5rem;
+    height: 1rem;
+    font-size: 0.42rem;
+    border-bottom: 1px solid #e6e6e6;
+}
+.chooseCard .item:last-child{
+    border: none;
+}
+
+.chooseCard .item .right{
+    display: none;
+    width: 0.42rem;
+    height: 0.42rem;
+    background: url("../images/right.png") no-repeat center;
+    background-size: contain;
+}
+.chooseCard .item.active .right{
+    display: block;
+}

@@ -1,0 +1,149 @@
+.myActivity{
+    padding-top: 1.56rem;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    background-color: #f0e6e8;
+}
+
+.myActivity .activity-list{
+
+}
+.myActivity .activity-list .item{
+    position: relative;
+    margin: 0 auto;
+    width: 10.4rem;
+    height: 4.6rem;
+    border-radius: 0.1rem;
+    box-shadow: 0 0.03rem 0.06rem 0.03rem #e2d8da;
+}
+.myActivity .activity-list .item .left-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    padding-left: 0.42rem;
+    width: 7.6rem;
+    height: 100%;
+    border-radius: 0.1rem 0 0 0.1rem;
+    background-image: linear-gradient(to right, #fff, rgba(255,255,255,0.5));
+}
+.myActivity .activity-list .item .title-wrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0.8rem;
+    height: 0.68rem;
+    background-image: url('../images/used1.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: auto 100%;
+}
+.myActivity .activity-list .item .title-wrap .title{
+    margin-right: 0.28rem;
+    font-size: 0.42rem;
+}
+.myActivity .activity-list .item .title-wrap .status{
+    padding: 0 0.16rem;
+    height: 0.54rem;
+    line-height: 0.56rem;
+    font-size: 0.3rem;
+    color: #fa426b;
+    border: 1px solid #ee105b;
+    border-radius: 0.06rem;
+}
+.myActivity .activity-list .item .love-name{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0.5rem 0 0.7rem;
+    height: 0.42rem;
+    line-height: 0.42rem;
+    font-size: 0.42rem;
+    color: #333;
+}
+.myActivity .activity-list .item .love-name .sex{
+    padding-left: 0.7rem;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: 0.16rem center;
+    background-size: auto 100%;
+}
+.myActivity .activity-list .item .love-name .boy{
+    background-image: url('../images/boy.png');
+}
+.myActivity .activity-list .item .love-name .and{
+    margin: 0 0.4rem;
+    color: #a9a9a9;
+}
+.myActivity .activity-list .item .love-name .girl{
+    background-position: 0.3rem center;
+    background-image: url('../images/girl.png');
+}
+.myActivity .activity-list .item .address{
+    font-size: 0.32rem;
+    color: #4d4d4d;
+    line-height: 0.6rem;
+}
+.myActivity .activity-list .item .address .adrs{
+
+}
+.myActivity .activity-list .item .address .date{
+
+}
+.myActivity .activity-list .item .activity-bg{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 7.16rem;
+    height: 100%;
+    background-image: url('../images/activity_bg.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: auto 100%;
+    z-index: 1;
+}
+.myActivity .activity-list .item .activity-icon{
+    position: absolute;
+    right: 0.3rem;
+    top: 1.3rem;
+    width: 1.76rem;
+    height: 2rem;
+    background-image: url('../images/activity_nail.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: contain;
+    z-index: 2;
+}
+
+.myActivity .no-activity{
+    position: relative;
+    margin: 1rem auto;
+    width: 9.1rem;
+    height: 7.2rem;
+    background: url("../images/no_activity.png") no-repeat center;
+    background-size: contain;
+}
+.myActivity .no-activity .no-des{
+    padding-top: 1.2rem;
+    text-align: center;
+}
+.myActivity .no-activity .create{
+    position: absolute;
+    bottom: 1.3rem;
+    left: 2.3rem;
+    width: 4.6rem;
+    height: 1.3rem;
+    line-height: 1.3rem;
+    text-align: center;
+    font-size: 0.42rem;
+    font-weight: 900;
+    border-radius: 0.65rem;
+    color: #fff;
+    background-image: linear-gradient(to bottom, #fb0f46, #fc5a5b);
+    box-shadow: 0 0.04rem 0.2rem 0.04rem #ffb8bf;
+}

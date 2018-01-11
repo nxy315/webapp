@@ -1,0 +1,75 @@
+.editSet{
+    box-sizing: border-box;
+    padding-top: 1.52rem;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f0e6e8;
+}
+
+.editSet .set-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.37rem 0 0.45rem;
+    height: 1.4rem;
+    font-size: 0.4rem;
+    background-color: #fff;
+    border-bottom: 1px solid #dbdbdb;
+}
+.editSet .set-item.special{
+    border: none;
+}
+
+.editSet .set-money{
+    padding: 0.2rem 0.5rem 0.5rem 0.42rem;
+    font-size: 0.4rem;
+    background-color: #fff;
+    border-bottom: 1px solid #dbdbdb;
+}
+.editSet .set-money .title{
+
+}
+.editSet .set-money .input-wrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.2rem 0 0.35rem;
+    padding: 0 0.34rem;
+    height: 1.2rem;
+    border: 1px solid #cccccc;
+    border-radius: 0.05rem;
+}
+.editSet .set-money .input-wrap .icon{
+    font-size: 0.48rem;
+    color: #666666;
+}
+.editSet .set-money .input-wrap input{
+    flex: 1;
+    margin-left: 0.2rem;
+    font-size: 0.48rem;
+}
+.editSet .set-money .des{
+    font-size: 0.3rem;
+    color: #ff9626;
+}
+
+.editSet .foot{
+    margin-top: 0.2rem;
+    padding: 0 0.5rem 0 0.42rem;
+    height: 1.4rem;
+    font-size: 0.4rem;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.editSet .foot .go{
+    width: 0.28rem;
+    height: 0.45rem;
+    background: url('../../../static/go.png') no-repeat center;
+    background-size: contain;
+}

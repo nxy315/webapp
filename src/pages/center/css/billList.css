@@ -1,0 +1,101 @@
+.billlist{
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    padding-top: 1.36rem;
+    background-color: #f0e6e8;
+}
+.billlist .header{
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding:0 0.37rem 0 1.2rem;
+    height: 1.36rem;
+    background-color: #fd2754;
+    color: #fff;
+    font-size: 0.42rem;
+    background-image: url("../images/back.png");
+    background-repeat: no-repeat;
+    background-position: 0.35rem center;
+    background-size: 0.53rem 0.51rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.billlist .list-wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0.22rem;
+}
+.billlist .list-wrap .item{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 0.3rem;
+    padding: 0 0.48rem;
+    width: 10.52rem;
+    height: 4.15rem;
+    background: url('../images/bill_listitem_bg.png') no-repeat center;
+    background-size: contain;
+    font-size: 0.38rem;
+}
+.billlist .list-wrap .item .item-col{}
+.billlist .list-wrap .item .item-col.title{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.billlist .list-wrap .item .item-col.count{
+    margin: 0.30rem 0;
+}
+.billlist .list-wrap .item .item-col.date{
+    position: relative;
+}
+.billlist .list-wrap .item .item-col .des{
+    color: #666;
+}
+.billlist .list-wrap .item .item-col .status{
+    box-sizing: border-box;
+    margin-left: 0.36rem;
+    padding: 0 0.2rem;
+    height: 0.5rem;
+    line-height: 0.49rem;
+    border-radius: 0.05rem;
+    font-size: 0.28rem;
+}
+.billlist .list-wrap .item .item-col .status.history{
+    border: 1px solid #b3b3b3;
+    color: #b3b3b3;
+}
+.billlist .list-wrap .item .item-col .status.now{
+    border: 1px solid #fa3d65;
+    color: #fa3d65;
+}
+.billlist .list-wrap .item .item-col .black{
+    color: #333333;
+}
+.billlist .list-wrap .item .item-col .checkout{
+    position: absolute;
+    right: 0;
+    bottom: -0.1rem;
+    width: 2.4rem;
+    height: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    border: 1px solid #fa3d65;
+    border-radius: 0.07rem;
+    background-color: #fff;
+    transition: cubic-bezier(0.4, 0.0, 0.2, 1) 0.2s;
+}
+.billlist .list-wrap .item .item-col .checkout:active{
+    background-color: #fa3d65;
+    color: #fff;
+}

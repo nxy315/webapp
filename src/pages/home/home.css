@@ -1,0 +1,130 @@
+.entrance-wrap{
+    margin-bottom: 0.2rem;
+    padding-bottom: 0.55rem;
+    background-color: #fff;
+    box-shadow: 0 0.03rem 0.03rem 0.03rem #d9d9d9;
+}
+.entrance-wrap .title-info{
+    height: 1.18rem;
+    line-height: 1.18rem;
+    color: #fff;
+    font-size: 0.4rem;
+    /*background-color: pink;*/
+}
+.entrance-wrap .swiper{
+    margin: 0 auto;
+    width: 10.31rem;
+    height: 3.63rem;
+    background-color: lightgreen;
+    border-radius: 0.08rem;
+}
+.entrance-wrap .topics{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem 0 0;
+}
+.entrance-wrap .topics .topic{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.12rem 0;
+    width: 25%;
+    height: 2.2rem;
+    font-size: 0.3rem;
+    color: #333333;
+}
+.entrance-wrap .topics .topic .topic-icon{
+    width: 1.28rem;
+    height: 1.28rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    font-size: 0;
+}
+.my-money{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 0.6rem 0;
+    background-color: #fff;
+}
+.my-money .my-money-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    height: 3.1rem;
+    border-right: 1px solid #ffe0e7;
+}
+.my-money .my-money-item:last-child{
+    border: none;
+}
+.my-money .my-money-item .money-name{
+    height: 0.44rem;
+    line-height: 0.44rem;
+    font-size: 0.44rem;
+    color: #1a1a1a;
+    font-weight: normal;
+}
+.my-money .my-money-item .money{
+    font-size: 0.6rem;
+    color: #e3e3e3;
+    font-weight: bold;
+}
+.my-money .my-money-item .money-detail{
+    width: 3rem;
+    height: 0.82rem;
+    line-height: 0.82rem;
+    text-align: center;
+    font-size: 0.36rem;
+    background-color: #fff;
+    color: #fb476f;
+    border: 1px solid #ffacc1;
+    border-radius: 0.41rem;
+    transition: cubic-bezier(0.4, 0.0, 0.2, 1) 0.2s;
+}
+.my-money .my-money-item .money-detail:active{
+    color: #fff;
+    background-color: #fb476f;
+    border-color: #fb476f;
+}
+
+.activity-wrap{
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0.38rem 0 0.7rem;
+}
+.activity{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 10.29rem;
+    height: 3.6rem;
+    border-radius: 0.1rem;
+    background-image: linear-gradient(to bottom right, #fea56a, #ff324f);
+}
+.activity img{
+    width: 0.9rem;
+    height: 0.9rem;
+    font-size: 0;
+}
+.no-at{
+    margin: 0.2rem 0;
+    font-size: 0.46rem;
+    color: #fff;
+}
+.no-at-info{
+    font-size: 0.34rem;
+    color: #ffc6b8;
+}

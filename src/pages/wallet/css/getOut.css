@@ -1,0 +1,107 @@
+.getOut{
+    padding-top: 1.56rem;
+}
+.getOut .chooseCard{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.42rem;
+    height: 1.8rem;
+    background-color: #fff;
+    border-bottom: 1px solid #dbdbdb;
+}
+.getOut .chooseCard .des-wrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.getOut .chooseCard .cover{
+    margin-right: 0.4rem;
+    width: 0.93rem;
+    height: 0.93rem;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-color: #ce2f41;
+}
+.getOut .chooseCard .info{}
+.getOut .chooseCard .info .title{
+    font-size: 0.42rem;
+    color: #333;
+}
+.getOut .chooseCard .info .type{
+    font-size: 0.34rem;
+    color: #999;
+}
+
+.getOut .chooseCard .go{
+    width: 0.28rem;
+    height: 0.45rem;
+    background-image: url('../images/go.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.getOut .box{
+    margin-top: 0.22rem;
+    margin-bottom: 0.68rem;
+    padding: 0.36rem 0.37rem;
+    font-size: 0.38rem;
+    color: #666;
+    background-color: #fff;
+    border-bottom: 1px solid #dbdbdb;
+}
+.getOut .box .title{
+    margin-bottom: 0.5rem;
+}
+.getOut .box .input-wrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 0.4rem;
+    height: 1.44rem;
+    border-bottom: 1px solid #dbdbdb;
+}
+.getOut .box .input-wrap span{
+    font-size: 0.8rem;
+    color: #333;
+}
+.getOut .box .input-wrap input{
+    flex: 1;
+    margin-left: 0.5rem;
+    height: 0.8rem;
+    font-size: 0.8rem;
+}
+.getOut .box .des{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.getOut .box .des .info{}
+.getOut .box .des .getAll{}
+
+
+.getOut .getBtn{
+    margin: 0 auto;
+    width: 8rem;
+    height: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    font-size: 0.4rem;
+    color: #fff;
+    border-radius: 0.04rem;
+    font-weight: lighter;
+}
+.getOut .getBtnDisable{
+    background-color: #dbdbdb;
+}
+
+.getOut .getBtnAble{
+    background-color: #fd2754;
+}

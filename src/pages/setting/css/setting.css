@@ -1,0 +1,41 @@
+.setting{
+    padding-top: 1.36rem;
+}
+
+
+.setting .set-wrap{
+    font-size: 0.42rem;
+    background-color: #fff;
+    color: #282828;
+}
+.setting .set-wrap .set-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.4rem;
+    padding: 0 0.5rem;
+    border-bottom: 1px solid #e6e6e6;
+}
+.setting .set-wrap .set-item .go{
+    width: 0.28rem;
+    height: 0.45rem;
+    background-image: url('../../../static/go.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.setting .set-wrap .set-item:last-child{
+    border: none;
+}
+
+.setting .logout{
+    display: block;
+    margin-top: 0.3rem;
+    padding-left: 0.5rem;
+    height: 1.4rem;
+    line-height: 1.4rem;
+    font-size: 0.42rem;
+    background-color: #fff;
+    color: #fd2754;
+}

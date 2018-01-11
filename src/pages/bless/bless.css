@@ -1,0 +1,74 @@
+.bless{
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    background-color: #fff;
+    padding-top: 1.36rem;
+}
+.bless .block{
+    height: 0.13rem;
+    background-color: #ebebeb;
+}
+.bless .toH5{
+    display: block;
+    padding-left: 0.36rem;
+    height: 1.6rem;
+    line-height: 1.6rem;
+    font-size: 0.42rem;
+    background-color: #fff;
+    background-image: url('../../static/go.png');
+    background-repeat: no-repeat;
+    background-position: 10.2rem center;
+    background-size: 0.28rem 0.45rem;
+    border-bottom: 1px solid #dbdbdb;
+}
+.bless .bless-list{
+    background-color: #fff;
+}
+.bless .bless-list .bless-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0.33rem 0.37rem;
+}
+.bless .bless-list .bless-item .avatar{
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    background-color: pink;
+}
+.bless .bless-list .bless-item .right{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 0.27rem;
+    flex: 1;
+}
+.bless .bless-list .bless-item .right .name{
+    margin-top: 0.08rem;
+    height: 0.24rem;
+    line-height: 0.24rem;
+    font-size: 0.24rem;
+    color: #808080;
+    font-weight: 900;
+}
+.bless .bless-list .bless-item .right .date{
+    text-align: left;
+    margin: 0.15rem 0 0;
+    padding-bottom: 0.43rem;
+    height: 0.24rem;
+    line-height: 0.24rem;
+    font-size: 0.24rem;
+    color: #b3b3b3;
+}
+.bless .bless-list .bless-item .right .msg{
+    display: inline-block;
+    padding: 0.15rem 0.3rem;
+    line-height: 0.6rem;
+    font-size: 0.4rem;
+    color: #4d4d4d;
+    border: 1px solid #d1d1d1;
+    border-radius: 0 0.05rem 0.05rem 0.05rem;
+}

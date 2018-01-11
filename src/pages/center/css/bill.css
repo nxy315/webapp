@@ -1,0 +1,180 @@
+.bill{
+    padding-top: 1.36rem;
+}
+.bill .header{
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding:0 0.37rem 0 1.2rem;
+    height: 1.36rem;
+    background-color: #fd2754;
+    color: #fff;
+    font-size: 0.42rem;
+    background-image: url("../images/back.png");
+    background-repeat: no-repeat;
+    background-position: 0.35rem center;
+    background-size: 0.53rem 0.51rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.bill .header .search-box{
+    width: 6.64rem;
+    height: 0.9rem;
+    background-color: #fff;
+    border-radius: 0.45rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.bill .header .search-box .search-input{
+    padding-left: 0.4rem;
+    border: none;
+    outline: none;
+    border-radius: 0.45rem;
+    height: 100%;
+    flex: 1;
+    font-size: 0.38rem;
+}
+.bill .header .search-box .search{
+    width: 1.15rem;
+    height: 100%;
+    display: block;
+    background-image: url("../images/search.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0.44rem;
+}
+.bill .cover{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+    background-color: #fd2754;
+}
+.bill .cover .cover-1{
+    width: 6.6rem;
+    height: 1.2rem;
+    line-height: 1rem;
+    background-image: url("../images/bill_title.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    font-size: 0.46rem;
+    font-weight: bold;
+    text-align: center;
+}
+.bill .cover .cover-2{
+    margin-top: 0.25rem;
+    font-size: 0.42rem;
+}
+.bill .cover .cover-3{
+    margin-bottom: 0.3rem;
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+.bill .cover .cover-4{
+    font-size: 0.4rem;
+}
+.bill .cover .cover-5{}
+.bill .cover .cover-6{
+    color: #fff;
+}
+.bill .cover .cover-7{}
+.bill .cover .cover-8{
+    color: #fff;
+}
+.bill .bill-list{
+    background-color: #fff;
+}
+.bill .bill-list .item{
+    padding: 0 0.5rem;
+    height: 1.8rem;
+    border-bottom: 1px solid #e6e6e6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.bill .bill-list .item:last-child{
+    border: none;
+}
+.bill .bill-list .item .info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0.2rem;
+}
+.bill .bill-list .item .info .name-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.bill .bill-list .item .info .name-info span{
+    display: block;
+}
+.bill .bill-list .item .info .name-info .name{
+    margin-right: 0.3rem;
+    font-size: 0.42rem;
+    color: #333;
+}
+.bill .bill-list .item .info .name-info .relation{
+    padding: 0 0.15rem;
+    margin-right: 0.13rem;
+    box-sizing: border-box;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    font-size: 0.28rem;
+    border: 1px solid #fd2754;
+    border-radius: 0.05rem;
+}
+.bill .bill-list .item .info .name-info .camp{
+    margin-right: 0.13rem;
+    padding: 0 0.15rem;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    color: #fff;
+    font-size: 0.28rem;
+    border-radius: 0.05rem;
+}
+.bill .bill-list .item .info .name-info .boy{
+    background-color: #1a82fd;
+}
+.bill .bill-list .item .info .name-info .girl{
+    background-color: #ff487c;
+}
+.bill .bill-list .item .info .money-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 0.36rem;
+}
+.bill .bill-list .item .info .money-info .get-count{
+    font-size: 0.42rem;
+    color: #3e9a34;
+}
+.bill .bill-list .item .info .money-info .des{
+    margin: 0 0.16rem 0 0.3rem;
+    color: #808080;
+}
+.bill .bill-list .item .info .money-info .give-count{}
+.bill .bill-list .item .des-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.36rem;
+}
+.bill .bill-list .item .des-info .des{
+    color: #808080;
+}
+.bill .bill-list .item .des-info .des-date{
+    color: #b3b3b3;
+}
