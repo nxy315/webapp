@@ -12,7 +12,7 @@ class ChooseSex extends Component {
     super(props);
 
     this.state = {
-      url: '/api/user/set-detail',
+      url: '',
       params: '',
       index: 0,
       sex: {
@@ -36,12 +36,36 @@ class ChooseSex extends Component {
     localStorage.removeItem('sex');
   }
 
+  choose(i) {
+    let token = localStorage.getItem('token');
+
+    axios({
+      method: 'post',
+      url: '/api/user/set-detail',
+      params: {
+        token: token,
+        type: 4,
+        content: i
+      }
+    }).then( res => {
+      if(res.data.status === 'success') {
+        this.props.history.push('/userInfo');
+      }
+    })
+  }
+
   render() {
     return(
       <div className="chooseSex">
         <Header content="修改性别"/>
 
-        <Choose index={this.state.index} url={this.state.url} params={this.state.params} list={this.state.list}/>
+        <div className="chooseComponent">
+          {
+            this.state.list.map((item, i) => {
+              return <div key={i} className={`item ${(this.state.index) == i+1 ? 'active' : ''}`} onClick={this.choose.bind(this, i+1)}>{item}<span className="right"></span></div>
+            })
+          }
+        </div>
       </div>
     )
   }

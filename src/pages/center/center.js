@@ -53,7 +53,7 @@ class Center extends Component {
 
           <div className="user-cover" style={{backgroundImage: "url("+require('./images/user_cover.png')+")"}}>
             {
-              token === null ? (
+              token ? (
                 <Link to="/login" className="name-info">
                   <div className="nick-name">请登录</div>
                   <div className="tel">登陆后电子请帖免费使用</div>

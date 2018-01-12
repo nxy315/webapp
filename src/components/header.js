@@ -9,13 +9,15 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        value: ''
+      value: '',
     }
   }
 
   componentDidMount() {
 
   }
+
+
 
   back() {
     window.history.go(-1)
