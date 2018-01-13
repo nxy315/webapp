@@ -4,6 +4,7 @@
 import React, { Component } from 'react';
 import axios from '../../util/ajax';
 import { Link } from 'react-router-dom';
+import Qiniu from 'qiniu';
 import './css/animate.css';
 import './css/h5.css';
 
@@ -33,6 +34,8 @@ class H5 extends Component{
   // }
 
   componentDidMount() {
+    console.log(Qiniu);
+
     axios({
       method: 'get',
       url: '/api/share/get-data-by-template-id',
@@ -104,6 +107,10 @@ class H5 extends Component{
     }
   }
 
+  qiniuUpload(token) {
+
+  }
+
   editCover(i, j, id) {
     let token = localStorage.getItem('token');
 
@@ -117,6 +124,7 @@ class H5 extends Component{
     }).then( res => {
       if(res.data.status === 'success') {
         console.log(res.data);
+        this.qiniuUpload(res.data.data.token)
         //4p6OdJXaB9m1rbEeXwUmxzdzeOpPyQJ5_FDIptYg:e8r01HdzQTFxSF2cr6qAzibxU9g=:eyJzY29wZSI6InNsai1pbWFnZXMtcHVibGljIiwiZGVhZGxpbmUiOjE1MTU3NTIyMTF9
       }
     })
@@ -124,7 +132,7 @@ class H5 extends Component{
 
   render() {
     return(
-      <div className="H5">
+      <div className="H5" id="h5">
         <div className="pageWrap" onTouchStart={this.moveStart.bind(this)} onTouchMove={this.moveIng.bind(this)} onTouchEnd={this.moveEnd.bind(this)}>
           {
             this.state.pages.map((item, i) => {
@@ -135,7 +143,7 @@ class H5 extends Component{
                       return (
                         <div className={`animated flip ele_${i}_${j}`} key={j}>
                           <img className="cover" src={itm.img}/>
-                          <button className={`editImg editImg_${i}_${j}`} onClick={this.editCover.bind(this, i, j, itm.id)}>编辑</button>
+                          <button id={`editImg_${i}_${j}`} className='editImg' onClick={this.editCover.bind(this, i, j, itm.id)}>编辑</button>
                         </div>
                       )
                     })
