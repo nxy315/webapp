@@ -3,6 +3,7 @@
  */
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Toast from '../../util/Toast';
 import axios from '../../util/ajax';
 import TabBar from '../../components/tabBar'
 import './css/center.css'
@@ -31,11 +32,22 @@ class Center extends Component {
         token: token
       }
     }).then(res => {
+      Toast({
+        type: 'loading',
+        typeStatus: 2,
+        msg: '正在加载'
+      })
       if(res.data.status === 'success') {
         this.setState({
           info: res.data.data
         });
       }
+    }).catch(err => {
+      Toast({
+        type: 'loading',
+        typeStatus: 2,
+        msg: '正在加载'
+      })
     })
   }
 

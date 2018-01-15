@@ -4,6 +4,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../components/header';
+import DatePicker from 'react-mobile-datepicker';
 import axios from '../../util/ajax';
 import './css/userInfo.css'
 
@@ -12,7 +13,10 @@ class UserInfo extends Component{
     super(props);
     this.state = {
       info: {},
-      sex: ''
+      sex: '',
+      time: '',
+      nowDate: new Date(),
+      isOpen: false,
     }
   }
 
@@ -42,7 +46,8 @@ class UserInfo extends Component{
           })
         }
         this.setState({
-          info: obj
+          info: obj,
+          time: obj.birthday
         });
       }
     })
@@ -50,6 +55,34 @@ class UserInfo extends Component{
 
   chooseSex() {
     this.props.history.push('/chooseSex')
+  }
+
+  chooseDate() {
+    this.setState({ isOpen: true });
+  }
+
+  handleCancel = () => {
+    this.setState({ isOpen: false });
+  }
+
+  handleSelect = (time) => {
+    let token = localStorage.getItem('token');
+    let d = new Date(time);
+
+    let iWant=d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+    this.setState({ time: iWant, isOpen: false });
+
+    axios({
+      method: 'post',
+      url: '/api/user/set-detail',
+      params: {
+        token,
+        type: 5,
+        content: iWant
+      }
+    }).then(res => {
+
+    })
   }
 
   render() {
@@ -82,8 +115,21 @@ class UserInfo extends Component{
               <span className="go"></span>
             </div>
           </Link>
+          <div className="set-item" onClick={this.chooseDate.bind(this)}>
+              生日
+              <div className="right-info">
+                  <span className="name">{this.state.time}</span>
+                  <span className="go"></span>
+              </div>
+          </div>
           {/*<div className="set-item">生日</div>*/}
+          {/*<div className="set-item" onClick={this.chooseDate.bind(this)}>生日</div>*/}
         </div>
+        <DatePicker
+            value={this.state.nowDate}
+            isOpen={this.state.isOpen}
+            onSelect={this.handleSelect}
+            onCancel={this.handleCancel} />
       </div>
     )
   }

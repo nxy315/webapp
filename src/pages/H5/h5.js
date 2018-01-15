@@ -4,7 +4,6 @@
 import React, { Component } from 'react';
 import axios from '../../util/ajax';
 import { Link } from 'react-router-dom';
-import Qiniu from 'qiniu';
 import wx from 'weixin-js-sdk';
 import './css/animate.css';
 import './css/h5.css';
