@@ -46,6 +46,7 @@ import H5 from './pages/H5/h5';
 import H5Set from './pages/H5/h5Set';
 import Music from './pages/H5/music';
 import Preview from './pages/H5/preview';
+import NoAccess from './components/noAccess';
 
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
@@ -97,6 +98,7 @@ ReactDOM.render(
         <Route path="/h5Set" component={H5Set}></Route>
         <Route path="/music" component={Music}></Route>
         <Route path="/preview" component={Preview}></Route>
+        <Route path="/noAccess" component={NoAccess}></Route>
       </Switch>
     </HashRouter>
   ),

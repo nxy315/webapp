@@ -24,11 +24,11 @@ class Home extends Component {
               <img className="topic-icon" src={require('./images/entry2.png')} alt="活动通知"/>
               <span>活动通知</span>
             </Link>
-            <Link to="/marryRegister" className="topic">
+            <Link to="/noAccess" className="topic">
               <img className="topic-icon" src={require('./images/entry3.png')} alt="结婚登记"/>
               <span>结婚登记</span>
             </Link>
-            <Link to="/calendar" className="topic">
+            <Link to="/noAccess" className="topic">
               <img className="topic-icon" src={require('./images/entry4.png')} alt="黄道吉日"/>
               <span>黄道吉日</span>
             </Link>

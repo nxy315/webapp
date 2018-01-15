@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import axios from '../../util/ajax';
 import { Link } from 'react-router-dom';
 import Qiniu from 'qiniu';
+import wx from 'weixin-js-sdk';
 import './css/animate.css';
 import './css/h5.css';
 
@@ -13,28 +14,25 @@ class H5 extends Component{
     super(props);
 
     this.state = {
-      edit: false,//是否是编辑状态
+      edit: true,//是否是编辑状态
       startPoint: 0,//开始y轴坐标
       endPoint: 0,//结束y轴坐标
       scroll: false,//是否可以滚动
       seat: 0,//第几页
-      pages: [],
+      pages: [],//
+      i: null,
+      j: null,
+      imgId: null,
       img1:'',img2:'',img3:'',img4:'',img5:'',img6:'',img7:'',img8:'',img9:'',img10:''
     }
   }
 
-  // setStateAsync(state) {
-  //   return new Promise((resolve) => {
-  //     this.setState(state, resolve)
-  //   });
-  // }
-  // async componentDidMount() {
-  //   // await this.setStateAsync({count: 1});
-  //   // console.log(this.state.count);//输出count=1
-  // }
-
   componentDidMount() {
-    console.log(Qiniu);
+    //微信初始化
+    // wxinit(() => {
+    //
+    // });
+
 
     axios({
       method: 'get',
@@ -44,7 +42,6 @@ class H5 extends Component{
       }
     }).then( res => {
       if(res.data.status === 'success') {
-        console.log(res.data.data.page[0].elements[0].img)
         this.setState({
           pages: res.data.data.page,
           img1: res.data.data.page[0].elements[0].img
@@ -107,13 +104,9 @@ class H5 extends Component{
     }
   }
 
-  qiniuUpload(token) {
-
-  }
-
-  editCover(i, j, id) {
+  qiniuUpload(e) {
+    let file = e.target.files[0];
     let token = localStorage.getItem('token');
-
     axios({
       method: 'get',
       url: '/api/user/get-auth',
@@ -123,16 +116,63 @@ class H5 extends Component{
       }
     }).then( res => {
       if(res.data.status === 'success') {
-        console.log(res.data);
-        this.qiniuUpload(res.data.data.token)
-        //4p6OdJXaB9m1rbEeXwUmxzdzeOpPyQJ5_FDIptYg:e8r01HdzQTFxSF2cr6qAzibxU9g=:eyJzY29wZSI6InNsai1pbWFnZXMtcHVibGljIiwiZGVhZGxpbmUiOjE1MTU3NTIyMTF9
+        if(file) {
+          let data = new FormData();
+          data.append('file', file);
+          data.append('token', res.data.data.token);
+          let config = {
+            headers: {'Content-Type':'multipart/form-data'}
+          };
+          axios.post('http://upload.qiniu.com/', data, config).then(res => {
+            if(res.status == 200) {
+              let url = 'http://p2bkdmc4g.bkt.clouddn.com/'+res.data.hash;
+              this.refs[this.state.i+'_'+this.state.j].setAttribute('src', url);
+              axios({
+                method: 'post',
+                url: '/api/invitation/upt-image',
+                params: {
+                  ele_id: this.state.imgId,
+                  img_path: url
+                }
+              }).then(res => {
+                if(res.status === 'success') {
+                  console.log(res)
+                }
+              })
+            }
+          })
+        }
       }
     })
+  }
+
+  editCover(i, j, id) {
+    this.setState({
+      i,
+      j,
+      imgId: id
+    },() => {
+      this.refs.file.click();
+    })
+  }
+
+  //打开微信地图
+  openLocation() {
+    //打开地图
+    //wx.openLocation({});
+    console.log(1);
+  }
+
+  //获取位置
+  getLocation() {
+    //wx.getLocation()
   }
 
   render() {
     return(
       <div className="H5" id="h5">
+        <div onClick={this.openLocation.bind(this)}>打开地图</div>
+        <input type="file" ref="file" accept="image/*" onChange={this.qiniuUpload.bind(this)} style={{display: 'none'}}/>
         <div className="pageWrap" onTouchStart={this.moveStart.bind(this)} onTouchMove={this.moveIng.bind(this)} onTouchEnd={this.moveEnd.bind(this)}>
           {
             this.state.pages.map((item, i) => {
@@ -141,9 +181,11 @@ class H5 extends Component{
                   {
                     item.elements.map((itm, j) => {
                       return (
-                        <div className={`animated flip ele_${i}_${j}`} key={j}>
-                          <img className="cover" src={itm.img}/>
-                          <button id={`editImg_${i}_${j}`} className='editImg' onClick={this.editCover.bind(this, i, j, itm.id)}>编辑</button>
+                        <div className={`ele_wrap ele_${i}_${j}`} key={j}>
+                          <div className={`animated filp ele_wrap_${i}_${j}`}>
+                            <img className="cover" src={itm.img} ref={i+'_'+j}/>
+                          </div>
+                          <div id={`editImg_${i}_${j}`} className='editImg' onClick={this.editCover.bind(this, i, j, itm.id)}>编辑</div>
                         </div>
                       )
                     })
@@ -153,34 +195,48 @@ class H5 extends Component{
             })
           }
         </div>
-
         {
-          this.state.edit ? (
-            <div className="footBar">
-              <div className="sets">
-                {/*<div className="set">*/}
-                {/*<div className="icon" style={{backgroundImage: "url("+require('./images/set.png')+")"}}></div>*/}
-                {/*<div className="des">排序/删除</div>*/}
-                {/*</div>*/}
-                <Link to="/music" className="set">
-                  <div className="icon" style={{backgroundImage: "url("+require('./images/music.png')+")"}}></div>
-                  <div className="des">音乐</div>
-                </Link>
-                <Link to="/h5set" className="set">
-                  <div className="icon" style={{backgroundImage: "url("+require('./images/set.png')+")"}}></div>
-                  <div className="des">设置</div>
-                </Link>
-                <Link to="/preview" className="set">
-                  <div className="icon" style={{backgroundImage: "url("+require('./images/preview.png')+")"}}></div>
-                  <div className="des">预览</div>
-                </Link>
+          this.state.seat == 0 ? '' : (
+            <div className="bless-foot">
+              <div className="bless-input-wrap">
+                请留下你的祝福
               </div>
-              <div className="send">
-                <div className="icon"></div>
-                发送
+              <div className="payBtn">
+                <div className="xiicon"></div>
+                <div>随礼</div>
               </div>
             </div>
-          ) : ''
+          )
+        }
+
+
+        {
+          // this.state.edit ? (
+          //   <div className="footBar">
+          //     <div className="sets">
+          //       {/*<div className="set">*/}
+          //       {/*<div className="icon" style={{backgroundImage: "url("+require('./images/set.png')+")"}}></div>*/}
+          //       {/*<div className="des">排序/删除</div>*/}
+          //       {/*</div>*/}
+          //       <Link to="/music" className="set">
+          //         <div className="icon" style={{backgroundImage: "url("+require('./images/music.png')+")"}}></div>
+          //         <div className="des">音乐</div>
+          //       </Link>
+          //       <Link to="/h5set" className="set">
+          //         <div className="icon" style={{backgroundImage: "url("+require('./images/set.png')+")"}}></div>
+          //         <div className="des">设置</div>
+          //       </Link>
+          //       <Link to="/preview" className="set">
+          //         <div className="icon" style={{backgroundImage: "url("+require('./images/preview.png')+")"}}></div>
+          //         <div className="des">预览</div>
+          //       </Link>
+          //     </div>
+          //     <div className="send">
+          //       <div className="icon"></div>
+          //       发送
+          //     </div>
+          //   </div>
+          // ) : ''
         }
       </div>
     )
