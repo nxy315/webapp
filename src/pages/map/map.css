@@ -21,10 +21,24 @@
 .mapPage .searchWrap input{
     box-sizing: border-box;
     padding: 0 0.5rem;
-    width: 10rem;
+    width: 7rem;
     height: 1rem;
     line-height: 1rem;
     border-radius: 0.5rem;
+}
+#search-list{
+    position: fixed;
+    top: 1.4rem;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 99999;
+    background-color: #fff;
+    overflow-y: scroll;
+}
+#mapSearch{
+    font-size: 0.4rem;
+    color: #fff;
 }
 .mapPage .mapContainer{
     width: 100%;

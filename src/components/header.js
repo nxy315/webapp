@@ -19,15 +19,11 @@ class Header extends Component {
 
   }
 
-  back() {
-    // this.props.history.push('/home')
-    // history.push('/home')
-  }
   render() {
     return(
       <div className="header">
         {this.props.content}
-        <div className="touchBack" onClick={this.back.bind(this)}></div>
+        <div className="touchBack" onClick={this.props.back}></div>
         {this.props.save ? (<span className="saveChange" onClick={this.props.save}>保存</span>) : ''}
       </div>
     )

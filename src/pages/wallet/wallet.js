@@ -7,10 +7,18 @@ import Header from '../../components/header'
 import './css/wallet.css';
 
 class Wallet extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  back() {
+    this.props.history.push('/')
+  }
+
   render() {
     return (
       <div className="account-wrap">
-        <Header content="我的钱包"/>
+        <Header content="我的钱包" back={this.back.bind(this)}/>
         <div className="cover-wrap">
           <div className="title">账户金额 (￥)</div>
           <div className="count">19820.00</div>

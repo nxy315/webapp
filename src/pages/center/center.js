@@ -24,19 +24,21 @@ class Center extends Component {
 
   componentDidMount() {
     const token = localStorage.getItem('token');
-    axios({
-      method: 'post',
-      url: '/api/user/get-user-detail',
-      params: {
-        token
-      }
-    }).then(res => {
-      if(res.data.status === 'success') {
-        this.setState({
-          info: res.data.data
-        });
-      }
-    })
+    if(token) {
+      axios({
+        method: 'post',
+        url: '/api/user/get-user-detail',
+        params: {
+          token
+        }
+      }).then(res => {
+        if(res.data.status === 'success') {
+          this.setState({
+            info: res.data.data
+          });
+        }
+      })
+    }
   }
 
   render() {

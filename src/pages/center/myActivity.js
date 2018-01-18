@@ -38,6 +38,10 @@ class MyActivity extends Component {
     })
   }
 
+  back() {
+    this.props.history.push('/center')
+  }
+
   render() {
     let block;
     if(this.state.list.length > 0 && !this.state.loading) {
@@ -83,7 +87,7 @@ class MyActivity extends Component {
 
     return (
       <div className="myActivity">
-        <Header content="我的活动"/>
+        <Header content="我的活动" back={this.back.bind(this)}/>
         <ul className="activity-list">
           {block}
         </ul>

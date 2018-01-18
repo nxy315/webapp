@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import axios from '../../util/ajax';
 import { Link } from 'react-router-dom';
 import wx from 'weixin-js-sdk';
+import util from '../../util/util';
 import wxinit from '../../util/wxconfig';
 import './css/animate.css';
 import './css/h5.css';
@@ -24,24 +25,41 @@ class H5 extends Component{
       i: null,
       j: null,
       imgId: null,
-      test: ''
+      test: '',
+      code: '',
     }
   }
 
   componentDidMount() {
-    let id = this.props.match.params.id;
+    wxinit();
+    let code = util.queryString('code');
+    if(code) {
+      this.setState({
+        code
+      })
+    } else {
+      window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="
+        + 'wxc4d4986ff1b104df'
+        + "&redirect_uri=" + encodeURIComponent(window.location.href)
+        + "&response_type=code"
+        + "&scope=snsapi_userinfo"
+        + "&state=weiapppay#wechat_redirect";
+    }
 
-    let center = new window.qq.maps.LatLng(33.232, 120.232);
-    let map = new window.qq.maps.Map(this.refs.map, {
-      center: center,
-      zoom: 12
-    })
-
-    let marker = new window.qq.maps.Marker({
-      position: center,
-      map: map
-    })
-    let mapM = document.getElementById("mapM");
+    // window.location.href = ''
+    // let id = this.props.match.params.id;
+    //
+    // let center = new window.qq.maps.LatLng(33.232, 120.232);
+    // let map = new window.qq.maps.Map(this.refs.map, {
+    //   center: center,
+    //   zoom: 12
+    // })
+    //
+    // let marker = new window.qq.maps.Marker({
+    //   position: center,
+    //   map: map
+    // })
+    // let mapM = document.getElementById("mapM");
     // let citylocation = new window.qq.maps.CityService({
     //   complete: function(res) {
     //     map.setCenter(res.detail.latLng);
@@ -202,79 +220,37 @@ class H5 extends Component{
   }
   pay() {
     axios({
-      method: 'post',
-      url: '/pay/example/jsapi.php'
+      method: 'get',
+      url: `/api/pay/make-order?code=${this.state.code}`,
     }).then(res => {
-      // wx.chooseWXPay({
-      //   appId: 'wx23841cce7185b550',
-      //   timestamp: '1461300911', // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
-      //   nonceStr: '5719aeafb587f', // 支付签名随机串，不长于 32 位
-      //   package: 'prepay_id=wx20160422125512b7d2205c9c0913643939', // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
-      //   signType: 'MD5', // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
-      //   paySign: '5DAB1DDABE1AD34E8FF3386AE971B727', // 支付签名
-      //   success: function(res) {
-      //     // 支付成功后的回调函数
-      //     if (res.errMsg == "chooseWXPay:ok") {
-      //       //支付成功
-      //       alert('支付成功');
-      //     } else {
-      //       alert(res.errMsg);
-      //     }
-      //   },
-      //   cancel: function(res) {
-      //     //支付取消
-      //     alert('支付取消');
-      //   }
-      // });
-      window.location.href = res.data;
-      // if(res.data.status == 'success') {
-      // wx.config({
-      //   debug: true,
-      //   appId: res.data.data.appId,
-      //   timestamp: res.data.data.timestamp, // 必填，生成签名的时间戳
-      //   nonceStr: res.data.data.nonceStr, // 必填，生成签名的随机串
-      //   signature: res.data.data.signature,// 必填，签名，见附录1
-      //   jsApiList: [
-      //     'onMenuShareTimeline','chooseWXPay'
-      //   ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-      // });
-      //
-      // wx.ready(function() {
-      //   if(typeof callback != 'undefined'){
-      //     callback();
-      //   }
-      // })
+      if(res.data.status === 'success') {
+        let config = res.data.data;
 
-      // }
-    }).catch(err => {
-      alert(err)
-    });
-    // axios({
-    //   url: '/api/pay/make-order',
-    //   method: 'post',
-    //   // params: {
-    //   //   activity_id: '',
-    //   //   pay_name: '尼宵阳',
-    //   //   pay_phone: '13938012302',
-    //   //   all_money: 500,
-    //   //   relation_ship: 1,
-    //   //   is_dinner: 3,
-    //   //   dinner_person: 3
-    //   // }
-    // }).then(res => {
-    //   if(res.data.status == 'success') {
-    //     wx.chooseWXPay({
-    //       // timestamp: res.data.data.timestamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
-    //       // nonceStr:  res.data.data.nonceStr, // 支付签名随机串，不长于 32 位
-    //       // package: '', // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
-    //       // signType: 'SHA1', // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
-    //       // paySign:  res.data.data.signature, // 支付签名
-    //       // success: function (res) {
-    //       //   // 支付成功后的回调函数
-    //       // }
-    //     });
-    //   }
-    // });
+        wxinit(() => {
+          wx.chooseWXPay({
+            appId: config.appId,
+            timestamp: config.timeStamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+            nonceStr: config.nonceStr, // 支付签名随机串，不长于 32 位
+            package: config.package, // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
+            signType: config.signType, // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+            paySign: config.paySign, // 支付签名
+            success: function(res) {
+              // 支付成功后的回调函数
+              if (res.errMsg == "chooseWXPay:ok") {
+                //支付成功
+                alert('支付成功');
+              } else {
+                alert(res.errMsg);
+              }
+            },
+            cancel: function(res) {
+              //支付取消
+              alert('支付取消');
+            }
+          });
+        })
+      }
+    })
   }
 
   render() {

@@ -39,13 +39,17 @@ class BillList extends Component {
     })
   }
 
+  back() {
+    this.props.history.push('/')
+  }
+
   render() {
     let block;
     if(this.state.list.length > 0 && !this.state.loading) {
       block = (
         this.state.list.map((item, i) => {
           return (
-            <li className="item">
+            <li className="item" key={i}>
               <div className="item-col title">
                 <span className="des">活动&nbsp;/&nbsp;</span>
                 <span className="black">{item.title}</span>
@@ -78,7 +82,7 @@ class BillList extends Component {
 
     return(
       <div className="billlist">
-        <Header content="随礼记账"/>
+        <Header content="随礼记账" back={this.back.bind(this)}/>
         <ul className="list-wrap">
           {block}
         </ul>

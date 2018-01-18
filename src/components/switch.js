@@ -12,6 +12,10 @@ class Switch extends Component{
     }
   }
 
+  componentDidMount() {
+
+  }
+
   changeSwitch() {
 
   }
@@ -19,7 +23,8 @@ class Switch extends Component{
   render() {
     return(
       <div className={this.props.open ? 'switch open' : 'switch'}>
-        <div className="slider" onClick={this.changeSwitch.bind(this)}></div>
+        {this.props.open}
+        <div className="slider" onClick={this.props.switch}></div>
       </div>
     )
   }

@@ -13,43 +13,63 @@ class EditSet extends Component{
     super(props);
 
     this.state = {
-
+      template_id: '',
+      switch1: false,
+      switch2: false,
+      switch3: false,
+      money: ''
     }
   }
 
   barrageSwitch() {
     axios({
       method: 'post',
-      url: '',
+      url: '/api/invitation/upt-barrage',
       params: {
-
+        template_id: this.state.template_id,
+        set_value: this.state.switch1 ? 1 : 2
       }
     }).then(res => {
-
+      if(res.data.status === 'success') {
+        this.setState({
+          switch1: !this.state.switch1
+        })
+      }
     })
   }
 
   getmoneySwitch() {
     axios({
       method: 'post',
-      url: '',
+      url: '/api/invitation/upt-cash',
       params: {
-
+        template_id: this.state.template_id,
+        set_value: this.state.switch2 ? 1 : 2
       }
     }).then(res => {
-
+      if(res.data.status === 'success') {
+        this.setState({
+          switch2: !this.state.switch2
+        })
+      }
     })
   }
 
   sendmoneySwitch() {
     axios({
       method: 'post',
-      url: '',
+      url: '/api/invitation/upt-money',
       params: {
-
+        template_id: this.state.template_id,
+        set_value: this.state.switch3 ? 1 : 2,
+        money: this.state.money
       }
     }).then(res => {
-
+      if(res.data.status === 'success') {
+        this.setState({
+          switch3: !this.state.switch3
+        })
+      }
     })
   }
 
@@ -60,30 +80,35 @@ class EditSet extends Component{
         <Header content="设置"/>
         <div className="set-item">
           弹幕开关
-          <Switch/>
+          <Switch switch={this.barrageSwitch.bind(this)} open={this.state.switch1}/>
         </div>
         <div className="set-item">
           <div>
             <span>礼金&nbsp;</span>
             <span className="gray">(开启后，亲朋好友可直接包红包)</span>
           </div>
-          <Switch open/>
+          <Switch switch={this.getmoneySwitch.bind(this)}  open={this.state.switch2}/>
         </div>
         <div className="set-item special">
           <div>
             <span>回礼&nbsp;</span>
             <span className="gray">(开启后，可设置回礼金额)</span>
           </div>
-          <Switch open/>
+          <Switch switch={this.sendmoneySwitch.bind(this)}  open={this.state.switch3}/>
         </div>
-        <div className="set-money">
-          <p className="title">设置回礼金额（元）</p>
-          <div className="input-wrap">
-            <span className="icon">￥</span>
-            <input type="text" placeholder="请输入回礼金额"/>
-          </div>
-          <p className="des">设置回礼后，好友发红包将会获得您的回礼红包</p>
-        </div>
+        {
+          this.state.switch3 ? (
+            <div className="set-money">
+              <p className="title">设置回礼金额（元）</p>
+              <div className="input-wrap">
+                <span className="icon">￥</span>
+                <input type="text" placeholder="请输入回礼金额"/>
+              </div>
+              <p className="des">设置回礼后，好友发红包将会获得您的回礼红包</p>
+            </div>
+          ) : ''
+        }
+
 
         <Link to="/templateInfo" className="foot">
           基本信息修改

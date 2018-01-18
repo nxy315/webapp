@@ -14,7 +14,7 @@ axios.interceptors.request.use(
     Toast({
       type: 'loading',
       typeStatus: 1,
-      msg: '正在加载'
+      msg: ''
     })
     let key = CryptoJS.enc.Utf8.parse("9A6dfD308dd21730fdF3aa0ab1f744E2");
     let word = JSON.stringify({

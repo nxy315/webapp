@@ -16,7 +16,7 @@ class Expend extends Component{
   }
 
   componentDidMount() {
-    // this.getList();
+    this.getList();
   }
 
   getList() {
