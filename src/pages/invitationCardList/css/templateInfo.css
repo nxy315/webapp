@@ -34,7 +34,7 @@
     justify-content: space-between;
     align-items: center;
 }
-.templateInfo .info-form .go{
+.templateInfo .go{
     margin-left: 0.4rem;
     width: 0.28rem;
     height: 0.45rem;
@@ -48,11 +48,13 @@
 .templateInfo .info-form .form2 input{
     text-align: right;
 }
-.templateInfo .info-form .form3{
+.templateInfo .form3{
+    margin-top: 0.15rem;
     height: 2.4rem;
     flex-wrap: nowrap;
+    font-size: 0.4rem;
 }
-.templateInfo .info-form .form3 .name-wrap{
+.templateInfo .form3 .name-wrap{
     box-sizing: border-box;
     text-align: center;
     display: flex;
@@ -60,33 +62,52 @@
     justify-content: space-between;
     align-items: center;
     padding: 0.35rem 0 0.5rem;
+    width: 50%;
     height: 100%;
 }
-.templateInfo .info-form .form3 .name-wrap .name{
+.templateInfo .form3 .name-wrap .name{
     margin-bottom: 0.5rem;
     padding-left: 0.6rem;
     background-repeat: no-repeat;
     background-position: left center;
     background-size: auto 100%;
 }
-.templateInfo .info-form .form3 .name-wrap .name.boy{
+.templateInfo .form3 .name-wrap .name.boy{
     color: #1b81ff;
     background-image: url('../images/boy.png');
 }
-.templateInfo .info-form .form3 .name-wrap .name.girl{
+.templateInfo .form3 .name-wrap .name.girl{
     background-image: url('../images/girl.png');
 }
-.templateInfo .info-form .form3 .name-wrap input{
-    flex: 0;
+.templateInfo .form3 .name-wrap input{
     text-align: center;
 }
 
-.templateInfo .info-form .form4{
+.templateInfo .form4{
+    font-size: 0.4rem;
 }
-.templateInfo .info-form .form4 .date{
+.templateInfo .form4 .date{
     color: #cccccc;
 }
+.templateInfo .form5{
 
+}
+.templateInfo .form5 span{
+    font-size: 0.4rem;
+}
+.templateInfo .form5 input{
+    text-align: right;
+}
+
+.templateInfo .form6 span{
+    font-size: 0.4rem;
+}
+.templateInfo .form6 input{
+    text-align: right;
+}
+.cnm-wrap{
+    margin: 0.2rem 0;
+}
 .templateInfo .address{
     margin-top: 0.15rem;
     padding: 0 0 0 0.36rem;
@@ -103,4 +124,8 @@
     height: 100%;
     background: url('../images/nail.png') no-repeat center;
     background-size: 0.36rem 0.43rem;
+}
+.templateInfo .map{
+    width: 100%;
+    height: 7rem;
 }

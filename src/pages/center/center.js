@@ -28,7 +28,7 @@ class Center extends Component {
       method: 'post',
       url: '/api/user/get-user-detail',
       params: {
-        token: token
+        token
       }
     }).then(res => {
       if(res.data.status === 'success') {
@@ -49,35 +49,37 @@ class Center extends Component {
             <Link to="/setting" className="set"></Link>
             {/*<Link to="/" className="msg"></Link>*/}
           </div>
-          <div className="head-cover"></div>
 
-          <div className="user-cover" style={{backgroundImage: "url("+require('./images/user_cover.png')+")"}}>
-            {
-              token ? (
-                <Link to="/login" className="name-info">
+          {
+            !token ? (
+              <Link to="/login" className="user-cover" style={{backgroundImage: "url("+require('./images/user_cover.png')+")"}}>
+                <div className="head-cover" style={{backgroundImage: 'url('+require('./images/login_cover.png')+')'}}></div>
+                <div className="name-info">
                   <div className="nick-name">请登录</div>
                   <div className="tel">登陆后电子请帖免费使用</div>
-                </Link>
-              ) : (
+                </div>
+              </Link>
+            ) : (
+              <div className="user-cover" style={{backgroundImage: "url("+require('./images/user_cover.png')+")"}}>
+                <div className="head-cover hasLogin" style={{backgroundImage: 'url('+this.state.info.head_image+')'}}></div>
                 <div className="name-info">
                   <div className="nick-name">{this.state.info.nickname ? this.state.info.nickname : '昵称(空)'}</div>
                   <div className="tel">{this.state.info.nickname ? this.state.info.nickname : '(空)'}</div>
                 </div>
-              )
-            }
+              </div>
+            )
+          }
 
-
-            {/*<div className="ofen-used">*/}
-              {/*<Link to="/myActivity" className="ofen ofen1">*/}
-                {/*<div className="ofen-icon" style={{backgroundImage: "url("+require('./images/used1.png')+")"}}></div>*/}
-                {/*我的活动*/}
-              {/*</Link>*/}
-              {/*<Link to="/wallet" className="ofen ofen2">*/}
-                {/*<div className="ofen-icon" style={{backgroundImage: "url("+require('./images/used2.png')+")"}}></div>*/}
-                {/*我的钱包*/}
-              {/*</Link>*/}
-            {/*</div>*/}
-          </div>
+          {/*<div className="ofen-used">*/}
+          {/*<Link to="/myActivity" className="ofen ofen1">*/}
+          {/*<div className="ofen-icon" style={{backgroundImage: "url("+require('./images/used1.png')+")"}}></div>*/}
+          {/*我的活动*/}
+          {/*</Link>*/}
+          {/*<Link to="/wallet" className="ofen ofen2">*/}
+          {/*<div className="ofen-icon" style={{backgroundImage: "url("+require('./images/used2.png')+")"}}></div>*/}
+          {/*我的钱包*/}
+          {/*</Link>*/}
+          {/*</div>*/}
         </div>
 
         <div className="records">
@@ -99,16 +101,16 @@ class Center extends Component {
             {/*我的帖子*/}
             {/*<i className="go-icon" style={{backgroundImage: "url("+require('./images/go.png')+")"}}></i>*/}
           {/*</Link>*/}
-          <Link to="/bill" className="menu">
+          <Link to="/billList" className="menu">
             <i className="menu-icon" style={{backgroundImage: "url("+require('./images/menu2.png')+")"}}></i>
             随礼记账
             <i className="go-icon" style={{backgroundImage: "url("+require('./images/go.png')+")"}}></i>
           </Link>
-          <Link to="/myArticle" className="menu">
-            <i className="menu-icon" style={{backgroundImage: "url("+require('./images/menu3.png')+")"}}></i>
-            常见问题
-            <i className="go-icon" style={{backgroundImage: "url("+require('./images/go.png')+")"}}></i>
-          </Link>
+          {/*<Link to="/myArticle" className="menu">*/}
+            {/*<i className="menu-icon" style={{backgroundImage: "url("+require('./images/menu3.png')+")"}}></i>*/}
+            {/*常见问题*/}
+            {/*<i className="go-icon" style={{backgroundImage: "url("+require('./images/go.png')+")"}}></i>*/}
+          {/*</Link>*/}
         </ul>
 
         <TabBar active="center"/>

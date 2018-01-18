@@ -78,6 +78,10 @@
     color: #e3e3e3;
     font-weight: bold;
 }
+.my-money .my-money-item .money .m{
+    font-size: 0.2rem;
+    font-weight: normal;
+}
 .my-money .my-money-item .money-detail{
     width: 3rem;
     height: 0.82rem;

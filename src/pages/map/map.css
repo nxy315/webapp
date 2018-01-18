@@ -1,0 +1,33 @@
+.mapPage{
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+.mapPage .searchWrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0 0.4rem;
+    width: 100%;
+    height: 1.4rem;
+    background-color: #fd2754;
+    z-index: 99999;
+}
+.mapPage .searchWrap input{
+    box-sizing: border-box;
+    padding: 0 0.5rem;
+    width: 10rem;
+    height: 1rem;
+    line-height: 1rem;
+    border-radius: 0.5rem;
+}
+.mapPage .mapContainer{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}

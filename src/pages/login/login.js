@@ -4,6 +4,7 @@
 import React, { Component } from 'react';
 import Header from '../../components/header';
 import { Link } from 'react-router-dom';
+import Toast from '../../util/Toast'
 import axios from '../../util/ajax';
 import './css/login.css';
 
@@ -40,40 +41,33 @@ class Login extends Component {
 
   login() {
     if(this.state.phone === '' || this.state.password === '') {
-      this.setState({
-        correct: false,
-        errMsg: '手机或密码不能为空'
-      },() => {
-        alert(this.state.errMsg)
-      });
+      Toast({
+        type: 'fail',
+        msg: '手机或密码不能为空',
+        duration: 2000
+      })
     } else if(!this.state.phone.match(phoneReg)) {
-      this.setState({
-        correct: false,
-        errMsg: '手机号格式不正确'
-      },() => {
-        alert(this.state.errMsg)
-      });
+      Toast({
+        type: 'fail',
+        msg: '手机格式不正确',
+        duration: 2000
+      })
     } else {
-      this.setState({
-        correct: true,
-        errMsg: ''
-      }, () => {
-        axios({
-          method: 'post',
-          url: '/api/site/login',
-          params: {
-            phone: this.state.phone,
-            type: 1,
-            code: '',
-            password: this.state.password
-          }
-        }).then(res => {
-          if(res.data.status === 'success') {
-            localStorage.setItem('token', res.data.data.token);
-            this.props.history.push('/center');
-          }
-        })
-      });
+      axios({
+        method: 'post',
+        url: '/api/site/login',
+        params: {
+          phone: this.state.phone,
+          type: 1,
+          code: '',
+          password: this.state.password
+        }
+      }).then(res => {
+        if(res.data.status === 'success') {
+          localStorage.setItem('token', res.data.data.token);
+          this.props.history.push('/center');
+        }
+      })
     }
   }
 
@@ -100,7 +94,7 @@ class Login extends Component {
         </div>
 
         <div className="pwd-opera">
-          <div className="rmber-pwd">记住密码</div>
+          {/*<div className="rmber-pwd">记住密码</div>*/}
           <Link to="/findPwd" className="forget-pwd">忘记密码？</Link>
         </div>
 

@@ -38,12 +38,18 @@ class Home extends Component {
         <div className="my-money">
           <div className="my-money-item">
             <h4 className="money-name">我的随礼</h4>
-            <div className="money">0.00</div>
+            <div className="money">
+              <span className="m">￥</span>
+              0.00
+            </div>
             <Link to="/expend" className="money-detail">查看详情</Link>
           </div>
           <div className="my-money-item">
             <h4 className="money-name">我的收礼</h4>
-            <div className="money">0.00</div>
+            <div className="money">
+              <span className="m">￥</span>
+              0.00
+            </div>
             <Link to="/bill" className="money-detail">查看详情</Link>
           </div>
         </div>

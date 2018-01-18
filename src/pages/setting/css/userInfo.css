@@ -19,7 +19,9 @@
     width: 1.2rem;
     height: 1.2rem;
     border-radius: 50%;
-    background-color: pink;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 .userInfo .set-wrap{
     font-size: 0.42rem;

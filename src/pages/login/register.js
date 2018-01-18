@@ -4,6 +4,7 @@
 import React, { Component } from 'react';
 import Header from '../../components/header';
 import axios from '../../util/ajax';
+import Toast from '../../util/Toast'
 import './css/login.css';
 
 const phoneReg = /^13[0-9]{9}$|14[0-9]{9}$|15[0-9]{9}$|16[0-9]{9}$|17[0-9]{9}$|18[0-9]{9}$|19[0-9]{9}$/;
@@ -43,7 +44,6 @@ class Register extends Component{
         phone: telVal,
       });
     }
-    console.log(this.state.correct);
   }
 
   passwordChange(e) {
@@ -65,11 +65,19 @@ class Register extends Component{
         }
       }).then(res => {
         if(res.data.status === 'success') {
-          alert('发送成功');
+          // Toast({
+          //   type: 'success',
+          //   msg: '发送成功',
+          //   duration: 2000
+          // })
         }
       })
     } else {
-      alert('手机格式不正确')
+      Toast({
+        type: 'fail',
+        msg: '手机格式不正确',
+        duration: 2000
+      })
     }
   }
 

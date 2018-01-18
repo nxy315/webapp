@@ -2,10 +2,36 @@
  * Created by nxy on 2018/1/3.
  */
 import React, { Component } from 'react';
+import axios from '../../util/ajax';
 import Header from '../../components/header';
 import './css/billDetail.css';
 
 class BillDetail extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: ''
+    }
+  }
+
+  componentDidMount() {
+    this.setState({
+      id: this.props.match.params.id
+    },() => {
+      axios({
+        method: 'post',
+        url: '',
+        params: {
+
+        }
+      }).then(res => {
+        if(res.data.status === 'success') {
+
+        }
+      })
+    })
+  }
+
   render() {
     return(
       <div className="billDetail">

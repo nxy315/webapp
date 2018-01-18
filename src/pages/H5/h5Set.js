@@ -3,11 +3,55 @@
  */
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from '../../util/ajax';
 import Header from '../../components/header';
 import Switch from '../../components/switch';
 import './css/h5Set.css';
 
 class EditSet extends Component{
+  constructor(props) {
+    super(props);
+
+    this.state = {
+
+    }
+  }
+
+  barrageSwitch() {
+    axios({
+      method: 'post',
+      url: '',
+      params: {
+
+      }
+    }).then(res => {
+
+    })
+  }
+
+  getmoneySwitch() {
+    axios({
+      method: 'post',
+      url: '',
+      params: {
+
+      }
+    }).then(res => {
+
+    })
+  }
+
+  sendmoneySwitch() {
+    axios({
+      method: 'post',
+      url: '',
+      params: {
+
+      }
+    }).then(res => {
+
+    })
+  }
 
   render() {
 

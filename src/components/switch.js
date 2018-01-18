@@ -4,10 +4,22 @@
 import React, { Component } from 'react';
 
 class Switch extends Component{
+  constructor(props) {
+    super(props);
+
+    this.state = {
+
+    }
+  }
+
+  changeSwitch() {
+
+  }
+
   render() {
     return(
       <div className={this.props.open ? 'switch open' : 'switch'}>
-        <div className="slider"></div>
+        <div className="slider" onClick={this.changeSwitch.bind(this)}></div>
       </div>
     )
   }

@@ -183,6 +183,55 @@ input{
 }
 /* 提交按钮样式结束 */
 
+/* 暂无数据开始 */
+.no-activity{
+  position: relative;
+  margin: 1rem auto;
+  width: 9.1rem;
+  height: 7.2rem;
+  background: url("./static/no_activity.png") no-repeat center;
+  background-size: contain;
+}
+.no-activity .no-des{
+  padding-top: 1.2rem;
+  text-align: center;
+}
+.no-activity .create{
+  position: absolute;
+  bottom: 1.3rem;
+  left: 2.3rem;
+  width: 4.6rem;
+  height: 1.3rem;
+  line-height: 1.3rem;
+  text-align: center;
+  font-size: 0.42rem;
+  font-weight: 900;
+  border-radius: 0.65rem;
+  color: #fff;
+  background-image: linear-gradient(to bottom, #fb0f46, #fc5a5b);
+  box-shadow: 0 0.04rem 0.2rem 0.04rem #ffb8bf;
+}
+/* 暂无数据结束 */
+
+
+/* 正在开发中开始 */
+.noAccess{
+  box-sizing: border-box;
+  padding-top: 1.36rem;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+.noAccess img{
+  margin-top: 3rem;
+  width: 6rem;
+}
+/* 正在开发中结束 */
+
 
 /*fast-out-slow-in: cubic-bezier(0.4, 0.0, 0.2, 1),*/
 /*linear-out-slow-in: cubic-bezier(0.0, 0.0, 0.2, 1),*/

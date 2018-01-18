@@ -3,6 +3,7 @@
  */
 import axios from 'axios';
 import CryptoJS from 'crypto-js';
+import Toast from './Toast';
 import rHeader from './getHeader';
 
 // axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded';
@@ -10,6 +11,11 @@ axios.defaults.baseURL = 'https://api.suiliji.com';
 // axios.defaults.baseURL = 'http://172.16.102.172:8099';
 axios.interceptors.request.use(
   (config) => {
+    Toast({
+      type: 'loading',
+      typeStatus: 1,
+      msg: '正在加载'
+    })
     let key = CryptoJS.enc.Utf8.parse("9A6dfD308dd21730fdF3aa0ab1f744E2");
     let word = JSON.stringify({
       headers: rHeader,
@@ -31,5 +37,29 @@ axios.interceptors.request.use(
     return Promise.reject(error);
   }
 );
+
+axios.interceptors.response.use(
+  response => {
+    Toast({
+      type: 'loading',
+      typeStatus: 2,
+      msg: '正在加载'
+    });
+    if(response.data.status === 'success') {
+
+    } else {
+      Toast({
+        type: 'fail',
+        msg: response.data.msg
+      });
+    }
+    return response;
+  },error => {
+    Toast({
+      type: 'loading',
+      typeStatus: 2,
+      msg: '正在加载'
+    })
+  })
 
 export default axios;

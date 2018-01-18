@@ -47,6 +47,7 @@ import H5Set from './pages/H5/h5Set';
 import Music from './pages/H5/music';
 import Preview from './pages/H5/preview';
 import NoAccess from './components/noAccess';
+import Map from './pages/map/map';
 
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
@@ -62,14 +63,14 @@ ReactDOM.render(
         <Route path="/findPart" component={FindPart}></Route>
         <Route path="/invitation" component={Invitation}></Route>
         <Route path="/myActivity" component={MyActivity}></Route>
-        <Route path="/bill" component={Bill}></Route>
+        <Route path="/bill/:id?" component={Bill}></Route>
         <Route path="/billList" component={BillList}></Route>
         <Route path="/billDetail" component={BillDetail}></Route>
         <Route path="/myArticle" component={MyArticle}></Route>
         <Route path="/wallet" component={Wallet}></Route>
         <Route path="/login" component={Login}></Route>
         <Route path="/invitationCardList" component={InvitationCardList}></Route>
-        <Route path="/templateInfo" component={TemplateInfo}></Route>
+        <Route path="/templateInfo/:type?" component={TemplateInfo}></Route>
         <Route path="/bless" component={Bless}></Route>
         <Route path="/systemMsg" component={SystemMsg}></Route>
         <Route path="/marryRegister" component={MarryRegister}></Route>
@@ -92,13 +93,14 @@ ReactDOM.render(
         <Route path="/addCardStep3" component={AddCardStep3}></Route>
         <Route path="/register" component={Register}></Route>
         <Route path="/findPwd" component={FindPwd}></Route>
-        <Route path="/chooseTypes" component={ChooseTypes}></Route>
+        <Route path="/chooseTypes/:type?" component={ChooseTypes}></Route>
         <Route path="/beginMake" component={BeginMake}></Route>
-        <Route path="/H5" component={H5}></Route>
+        <Route path="/H5/:id?" component={H5}></Route>
         <Route path="/h5Set" component={H5Set}></Route>
         <Route path="/music" component={Music}></Route>
         <Route path="/preview" component={Preview}></Route>
         <Route path="/noAccess" component={NoAccess}></Route>
+        <Route path="/map/:lat?/:lng?" component={Map}></Route>
       </Switch>
     </HashRouter>
   ),

@@ -4,6 +4,8 @@
 import React, { Component } from 'react';
 // import { browserHistory } from 'react-router-dom';
 // import history from '../util/history';
+import createHistory from 'history/createBrowserHistory';
+
 
 class Header extends Component {
   constructor(props) {
@@ -17,10 +19,8 @@ class Header extends Component {
 
   }
 
-
-
   back() {
-    window.history.go(-1)
+    // this.props.history.push('/home')
     // history.push('/home')
   }
   render() {

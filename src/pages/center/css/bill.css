@@ -168,7 +168,7 @@
 .bill .bill-list .item .des-info{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     font-size: 0.36rem;
 }

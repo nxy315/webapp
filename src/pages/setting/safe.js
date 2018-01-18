@@ -14,7 +14,7 @@ class Safe extends Component{
 
         <ul className="safe-wrap">
           <Link to="/modifyPwd" className="safe-item">修改密码<span className="go"></span></Link>
-          <Link to="/modifyTel" className="safe-item">修改手机号<span className="go"></span></Link>
+          {/*<Link to="/modifyTel" className="safe-item">修改手机号<span className="go"></span></Link>*/}
           {/*<li className="safe-item">设置密码保护<span className="go"></span></li>*/}
           {/*<li className="safe-item">紧急锁定账户<span className="go"></span></li>*/}
         </ul>

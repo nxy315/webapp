@@ -1,0 +1,76 @@
+.toastInit {
+    display: none !important;
+}
+
+.toastBox {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    pointer-events: none;
+    font-family: "Microsoft YaHei";
+}
+
+.toastBox .toastContent {
+    max-width: 40%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 4px;
+    font-size: 14px;
+    opacity: 1;
+    transition-property: opacity, transform;
+    transition-duration: 0.2s;
+    transform: translate(0, -50%);
+}
+
+.toastBox .toastContent .toastInnerBox{
+    padding: 5px 10px;
+}
+.toastBox .toastContent .toastInnerBox .toastInnerText{
+    width: 100%;
+    text-align: center;
+}
+
+.toastBox .toastContent .toastLoadingImg{
+    width: 40px;
+    height: 40px;
+    margin: 5px auto;
+    background-image: url("../Img/loading.svg");
+    background-size: 100%;
+    animation: toastLoading 1s steps(12) infinite;
+}
+.toastBox .toastContent .toastInnerImg{
+    width: 30px;
+    height: 30px;
+    margin: 10px auto;
+}
+.toastBox .toastContent .toastInnerImg img {
+    width: 100%;
+    height: 100%;
+}
+
+.toastEnter {
+    opacity: 0;
+    transform: translate(0, -30%);
+}
+
+.toastOut {
+    display: none !important;
+}
+
+@keyframes toastLoading {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg)
+    }
+    to {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn)
+    }
+}

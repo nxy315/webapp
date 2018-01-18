@@ -32,23 +32,24 @@
 .cover-wrap .head-cover{
     position: absolute;
     left: 50%;
-    top: 0.2rem;
+    top: -0.9rem;
     margin-left: -0.9rem;
     width: 1.8rem;
     height: 1.8rem;
     border-radius: 50%;
-    /*background-color: pink;*/
-    /*border: 0.04rem solid #fff;*/
-    /*box-shadow: 0 0.02rem 0.06rem 0.03rem #fcc7ce;*/
     z-index: 3;
-
-    background-image: url('../images/login_cover.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
 }
+.cover-wrap .head-cover.hasLogin{
+    background-color: #fff;
+    border: 0.04rem solid #fff;
+    box-shadow: 0 0.02rem 0.06rem 0.03rem #fcc7ce;
+}
 
 .user-cover{
+    display: block;
     position: relative;
     margin: 0 auto;
     padding: 1.18rem 0 0.4rem;
