@@ -23,7 +23,6 @@ class Switch extends Component{
   render() {
     return(
       <div className={this.props.open ? 'switch open' : 'switch'}>
-        {this.props.open}
         <div className="slider" onClick={this.props.switch}></div>
       </div>
     )

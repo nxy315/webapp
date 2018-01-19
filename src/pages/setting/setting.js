@@ -17,13 +17,9 @@ class Setting extends Component {
 
   loginOut() {
     let token = localStorage.getItem('token');
-    axios({
-      method: 'post',
-      url: '/api/site/logout',
-      params: {
-        token: token
-      }
-    }).then( res => {
+    axios.post('/api/site/logout',{
+      token
+    }).then(res => {
       if(res.data.status === 'success') {
         localStorage.removeItem('token');
         this.props.history.push('/login')

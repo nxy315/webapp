@@ -18,12 +18,8 @@ class BillDetail extends Component {
     this.setState({
       id: this.props.match.params.id
     },() => {
-      axios({
-        method: 'post',
-        url: '',
-        params: {
+      axios.post('',{
 
-        }
       }).then(res => {
         if(res.data.status === 'success') {
 

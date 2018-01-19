@@ -19,11 +19,7 @@ class Music extends Component{
   }
 
   componentDidMount() {
-    axios({
-      method: 'post',
-      url: '/api/music/get-music-cate',
-      params: {}
-    }).then( res => {
+    axios.post('/api/music/get-music-cate',{}).then(res => {
       if(res.data.status === 'success') {
         this.setState({
           type: res.data.data
@@ -37,20 +33,15 @@ class Music extends Component{
     this.setState({
       id: id
     }, () => {
-      axios({
-        method: 'post',
-        url: '/api/music/get-search-music',
-        params: {
-          cate_id: Number(this.state.id),
-          page: 1,
-          limit: 40
-        }
-      }).then( res => {
+      axios.post('/api/music/get-search-music',{
+        cate_id: Number(this.state.id),
+        page: 1,
+        limit: 40
+      }).then(res => {
         if(res.data.status === 'success') {
           this.setState({
             musicList: res.data.data.list
           });
-
         }
       })
     })
@@ -73,7 +64,7 @@ class Music extends Component{
           <div className="music-list">
             {
               this.state.musicList.length > 0 && this.state.musicList.map((item, i) => {
-                return (<div className="item">
+                return (<div className="item" key={i}>
                   <span className="checked"></span>
                   {item.name}
                   <span className="hot"></span>

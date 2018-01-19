@@ -16,35 +16,67 @@ class H5 extends Component{
 
     this.state = {
       templateId: null,
-      edit: true,//是否是编辑状态
+      edit: false,//是否是编辑状态1编辑2预览
       startPoint: 0,//开始y轴坐标
       endPoint: 0,//结束y轴坐标
       scroll: false,//是否可以滚动
       seat: 0,//第几页
       pages: [],//
-      i: null,
-      j: null,
-      imgId: null,
-      test: '',
-      code: '',
+      i: null,//第i页
+      j: null,//第i页的第j个元素
+      imgId: null,//图片id
+      code: '',//公众号code用来跟后台交换支付参数
+      red_part: false,//弹出随礼红包
+      send_money: false,//弹出回礼红包
+      open: false,
+      openEnd: false,
+      qrcodePage: false,
     }
   }
 
   componentDidMount() {
     wxinit();
-    let code = util.queryString('code');
-    if(code) {
-      this.setState({
-        code
-      })
-    } else {
-      window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="
-        + 'wxc4d4986ff1b104df'
-        + "&redirect_uri=" + encodeURIComponent(window.location.href)
-        + "&response_type=code"
-        + "&scope=snsapi_userinfo"
-        + "&state=weiapppay#wechat_redirect";
+    let id = this.props.match.params.id;
+    let edit = this.props.match.params.edit;
+    if(edit) {
+      if(edit == 1) {
+        this.setState({
+          edit: true
+        })
+      } else if(edit == 2) {
+        this.setState({
+          edit: false
+        })
+      }
     }
+    if(id) {
+      this.setState({
+        templateId: id
+      }, () => {
+        axios.post('/api/share/get-data-by-template-id',{
+          template_id: 1
+        }).then(res => {
+          if(res.data.status === 'success') {
+            this.setState({
+              pages: res.data.data.page,
+            });
+          }
+        })
+      })
+    }
+    // let code = util.queryString('code');
+    // if(code) {
+    //   this.setState({
+    //     code
+    //   })
+    // } else {
+    //   window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="
+    //     + 'wxc4d4986ff1b104df'
+    //     + "&redirect_uri=" + encodeURIComponent(window.location.href)
+    //     + "&response_type=code"
+    //     + "&scope=snsapi_userinfo"
+    //     + "&state=weiapppay#wechat_redirect";
+    // }
 
     // window.location.href = ''
     // let id = this.props.match.params.id;
@@ -83,28 +115,6 @@ class H5 extends Component{
     //     }
     //   })
     // });
-
-
-    // axios({
-    //   method: 'get',
-    //   url: '/api/share/get-data-by-template-id',
-    //   params: {
-    //     template_id: 1
-    //   }
-    // }).then( res => {
-    //   if(res.data.status === 'success') {
-    //     this.setState({
-    //       pages: res.data.data.page,
-    //       img1: res.data.data.page[0].elements[0].img
-    //     },() => {
-    //       // this.setState({
-    //       //   img1: res.data.data.page
-    //       // })
-    //       // console.log(this.state.pages[0].elements[0].img)
-    //     });
-    //
-    //   }
-    // })
   }
 
   moveStart(e) {
@@ -158,14 +168,10 @@ class H5 extends Component{
   qiniuUpload(e) {
     let file = e.target.files[0];
     let token = localStorage.getItem('token');
-    axios({
-      method: 'get',
-      url: '/api/user/get-auth',
-      params: {
-        token,
-        type: '1'
-      }
-    }).then( res => {
+    axios.post('/api/user/get-auth',{
+      token,
+      type: '1'
+    }).then(res => {
       if(res.data.status === 'success') {
         if(file) {
           let data = new FormData();
@@ -253,49 +259,111 @@ class H5 extends Component{
     })
   }
 
+  openPay() {
+    this.setState({
+      red_part: true
+    })
+  }
+
+  closeRed() {
+    this.setState({
+      red_part: false
+    })
+  }
+
+  openRed() {
+    this.setState({
+      open: true
+    },() => {
+      setTimeout(() => {
+        this.setState({
+          openEnd: true
+        })
+      }, 500)
+    })
+  }
+
   render() {
     return(
       <div className="H5" id="h5">
-        <div ref="map" style={{width: '400px', height: '400px'}}></div>
-        <div onClick={this.pay.bind(this)}>支付</div>
-        <div onClick={this.openLocation.bind(this)}>打开地图</div>
-        {this.state.test}
+        {/*<div onClick={this.pay.bind(this)}>支付</div>*/}
+        {/*<div onClick={this.openLocation.bind(this)}>打开地图</div>*/}
+        {this.state.seat}
+        {/*<audio src="http://p15nw7thi.bkt.clouddn.com/music/sys_music/911 - I Do.mp3" autoplay="autoplay"></audio>*/}
         <input type="file" ref="file" accept="image/*" onChange={this.qiniuUpload.bind(this)} style={{display: 'none'}}/>
-        <div className="pageWrap" onTouchStart={this.moveStart.bind(this)} onTouchMove={this.moveIng.bind(this)} onTouchEnd={this.moveEnd.bind(this)}>
-          {
-            this.state.pages.map((item, i) => {
-              return (
-                <div key={i} className={`animated page page${i} ${Number(this.state.seat) === i ? 'active fadeIn' : 'fadeOut'}`}>
-                  {
-                    item.elements.map((itm, j) => {
-                      return (
-                        <div className={`ele_wrap ele_${i}_${j}`} key={j}>
-                          <div className={`animated filp ele_wrap_${i}_${j}`}>
-                            <img className="cover" src={itm.img} ref={i+'_'+j}/>
-                          </div>
-                          <div id={`editImg_${i}_${j}`} className='editImg' onClick={this.editCover.bind(this, i, j, itm.id)}>编辑</div>
-                        </div>
-                      )
-                    })
-                  }
+        <div className="firstPage">
+
+        </div>
+        <div className={`pageWrap ${(this.state.red_part || this.state.send_money || this.state.qrcodePage) ? 'blur':''}`} onTouchStart={this.moveStart.bind(this)} onTouchMove={this.moveIng.bind(this)} onTouchEnd={this.moveEnd.bind(this)}>
+
+          {/*{*/}
+            {/*this.state.pages.map((item, i) => {*/}
+              {/*return (*/}
+                {/*<div key={i} className={`animated page page${i} ${Number(this.state.seat) === i ? 'active fadeIn' : 'fadeOut'}`}>*/}
+                  {/*{*/}
+                    {/*item.elements.map((itm, j) => {*/}
+                      {/*return (*/}
+                        {/*<div className={`ele_wrap ele_${i}_${j}`} key={j}>*/}
+                          {/*<div className={`animated filp ele_wrap_${i}_${j}`}>*/}
+                            {/*<img className="cover" src={itm.img} ref={i+'_'+j}/>*/}
+                          {/*</div>*/}
+                          {/*{*/}
+                            {/*itm.is_edit == '1' ? (*/}
+                              {/*<div id={`editImg_${i}_${j}`} className='editImg' onClick={this.editCover.bind(this, i, j, itm.id)}>编辑</div>*/}
+                            {/*) : ''*/}
+                          {/*}*/}
+                        {/*</div>*/}
+                      {/*)*/}
+                    {/*})*/}
+                  {/*}*/}
+                {/*</div>*/}
+              {/*)*/}
+            {/*})*/}
+          {/*}*/}
+          <div className="lastPage">
+            <div className="contentWrap">
+              <h1 className="t1">WELCOME</h1>
+              <p className="t2">2018年01月01日</p>
+              <p className="t3">上海陆家嘴大酒店</p>
+              <div ref="sharemap" className="map"></div>
+              <h4 className="t4">是否赴宴</h4>
+              <ul className="statusWrap">
+                <li className="statusItem active">赴宴</li>
+                <li className="statusItem">待定</li>
+                <li className="statusItem">有事</li>
+              </ul>
+              <div className="t5">
+                <div className="c1">导航</div>
+                <div className="c2">
+                  <div className="xiicon"></div>
+                  随礼
                 </div>
-              )
-            })
-          }
+              </div>
+            </div>
+          </div>
         </div>
         {
-          this.state.seat == 0 ? '' : (
+          (this.state.seat == 0 || this.state.seat == (this.state.pages.length - 1) && this.state.edit == 2) ? '' : (
             <div className="bless-foot">
               <div className="bless-input-wrap">
                 请留下你的祝福
               </div>
-              <div className="payBtn">
+              <div className="payBtn" onClick={this.openPay.bind(this)}>
                 <div className="xiicon"></div>
                 <div>随礼</div>
               </div>
             </div>
           )
         }
+        {/*<div className="bless-foot">*/}
+          {/*<div className="bless-input-wrap">*/}
+            {/*请留下你的祝福*/}
+          {/*</div>*/}
+          {/*<div className="payBtn">*/}
+            {/*<div className="xiicon"></div>*/}
+            {/*<div>随礼</div>*/}
+          {/*</div>*/}
+        {/*</div>*/}
 
 
         {
@@ -310,7 +378,7 @@ class H5 extends Component{
                   <div className="icon" style={{backgroundImage: "url("+require('./images/music.png')+")"}}></div>
                   <div className="des">音乐</div>
                 </Link>
-                <Link to="/h5set" className="set">
+                <Link to={`/h5set/${this.state.templateId}`} className="set">
                   <div className="icon" style={{backgroundImage: "url("+require('./images/set.png')+")"}}></div>
                   <div className="des">设置</div>
                 </Link>
@@ -326,6 +394,84 @@ class H5 extends Component{
             </div>
           ) : ''
         }
+
+        {
+          (this.state.red_part || this.state.send_money || this.state.qrcodePage) ? (
+            <div className="redMask"></div>
+          ) : ''
+        }
+        {
+          this.state.red_part ? (
+            <div className="redPart animated bounceIn">
+
+              <div className="statisticForm">
+                <div className="form-item">
+                  <div className="name"><span className="red">*</span>随礼人:</div>
+                  <input type="text" placeholder="请输入您的姓名"/>
+                </div>
+                <div className="form-item">
+                  <div className="name"><span className="red">*</span>随礼金:</div>
+                  <input type="text" placeholder="请输入礼金金额"/>
+                </div>
+                <div className="form-item">
+                  <div className="name"><span className="red">*</span>手机号:</div>
+                  <input type="text" placeholder="输入号码以便通知联系"/>
+                </div>
+                <div className="form-item">
+                  <div className="name">关系:</div>
+                  <input type="text" placeholder="请输入你们的关系"/>
+                </div>
+              </div>
+              <div className="getMoney" onClick={this.pay.bind(this)}>塞钱进红包随礼</div>
+              <div className="close" onClick={this.closeRed.bind(this)}></div>
+            </div>
+          ) : ''
+        }
+
+        {
+          this.state.send_money ? (
+            <div className="sendMoney">
+              <div className={`unopen animated ${this.state.open ? 'bounceOut' : ''}`}>
+                <div className="openBtn" onClick={this.openRed.bind(this)}></div>
+                <div className="content-wrap">
+                  <div className="p1">
+                    <div className="s1">李雷</div>
+                    <div className="s2">and</div>
+                    <div className="s1">韩梅梅</div>
+                  </div>
+                  <div className="p2">给您的新婚回礼红包</div>
+                </div>
+              </div>
+              <div className={`open animated  ${this.state.openEnd ? 'bounceIn' : ''}`}>
+                <div className="packageWrap">
+                  <p className="p1">您已收到</p>
+                  <p className="p2">
+                    <strong>20</strong>
+                    <span>元</span>
+                  </p>
+                  <p className="p3">回礼红包</p>
+                </div>
+                <div className="content-wrap">
+                  <div className="p1">
+                    <div className="s1">李雷</div>
+                    <div className="s2">and</div>
+                    <div className="s1">韩梅梅</div>
+                  </div>
+                  <div className="p2">给您的新婚回礼红包</div>
+                </div>
+              </div>
+
+            </div>
+          ) : ''
+        }
+
+        {/*<div className="qrcodePage">*/}
+          {/*<div className="logo"></div>*/}
+          {/*<div className="logoText"></div>*/}
+          {/*<div className="t">长按二维码制作电子请帖</div>*/}
+          {/*<div className="qrcode"></div>*/}
+          {/*<div className="gohome">我也要创建活动</div>*/}
+        {/*</div>*/}
       </div>
     )
   }

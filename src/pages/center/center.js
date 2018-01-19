@@ -25,12 +25,8 @@ class Center extends Component {
   componentDidMount() {
     const token = localStorage.getItem('token');
     if(token) {
-      axios({
-        method: 'post',
-        url: '/api/user/get-user-detail',
-        params: {
-          token
-        }
+      axios.post('/api/user/get-user-detail',{
+        token
       }).then(res => {
         if(res.data.status === 'success') {
           this.setState({

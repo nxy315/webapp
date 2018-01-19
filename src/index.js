@@ -95,8 +95,8 @@ ReactDOM.render(
         <Route path="/findPwd" component={FindPwd}></Route>
         <Route path="/chooseTypes/:type?" component={ChooseTypes}></Route>
         <Route path="/beginMake" component={BeginMake}></Route>
-        <Route path="/H5/:id?" component={H5}></Route>
-        <Route path="/h5Set" component={H5Set}></Route>
+        <Route path="/H5/:id?/:edit?" component={H5}></Route>
+        <Route path="/h5Set/:id?" component={H5Set}></Route>
         <Route path="/music" component={Music}></Route>
         <Route path="/preview" component={Preview}></Route>
         <Route path="/noAccess" component={NoAccess}></Route>

@@ -43,6 +43,14 @@ class ChooseTypes extends Component{
     }
   }
 
+  back() {
+    if(this.state.index) {
+      this.props.history.push(`/templateInfo/${this.state.index}`);
+    } else {
+      this.props.history.push('/templateInfo');
+    }
+  }
+
   chooseHandle(i) {
     this.setState({
       index: i
@@ -54,7 +62,7 @@ class ChooseTypes extends Component{
   render() {
     return(
       <div className="chooseTypes">
-        <Header content="活动类型"/>
+        <Header content="活动类型" back={this.back.bind(this)}/>
         <div className="items">
           {
             this.state.list.map((item, i) => {

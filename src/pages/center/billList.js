@@ -19,13 +19,9 @@ class BillList extends Component {
   }
 
   componentDidMount() {
-    axios({
-      method: 'post',
-      url: '/api/activity/activity-list-by-account',
-      params: {
-        page: 1,
-        page_size: 40
-      }
+    axios.post('/api/activity/activity-list-by-account',{
+      page: 1,
+      page_size: 40
     }).then(res => {
       this.setState({
         loading: false
@@ -40,7 +36,7 @@ class BillList extends Component {
   }
 
   back() {
-    this.props.history.push('/')
+    this.props.history.push('/center')
   }
 
   render() {

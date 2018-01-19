@@ -53,15 +53,11 @@ class Login extends Component {
         duration: 2000
       })
     } else {
-      axios({
-        method: 'post',
-        url: '/api/site/login',
-        params: {
-          phone: this.state.phone,
-          type: 1,
-          code: '',
-          password: this.state.password
-        }
+      axios.post('/api/site/login',{
+        phone: this.state.phone,
+        type: 1,
+        code: '',
+        password: this.state.password
       }).then(res => {
         if(res.data.status === 'success') {
           localStorage.setItem('token', res.data.data.token);

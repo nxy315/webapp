@@ -2,6 +2,7 @@
  * Created by nxy on 2018/1/3.
  */
 import React, { Component } from 'react';
+import Header from '../../components/header';
 import axios from '../../util/ajax';
 import { Link } from 'react-router-dom';
 import './css/bill.css';
@@ -21,13 +22,9 @@ class Bill extends Component {
     this.setState({
       id:this.props.match.params.id
     },() => {
-      axios({
-        method: 'post',
-        url: '/api/activity/overview',
-        params: {
-          token,
-          activity_id: this.state.id
-        }
+      axios.post('/api/activity/overview',{
+        token,
+        activity_id: this.state.id
       }).then(res => {
         if(res.data.status === 'success') {
           this.setState({
@@ -40,17 +37,17 @@ class Bill extends Component {
     });
   }
 
+  back() {
+    this.props.history.push('/billList')
+  }
+
   getList() {
     let token = localStorage.getItem('token');
-    axios({
-      method: 'post',
-      url: '/api/activity/bill',
-      params: {
-        token,
-        activity_id: this.state.id,
-        page: 1,
-        size: 100
-      }
+    axios.post('/api/activity/bill',{
+      token,
+      activity_id: this.state.id,
+      page: 1,
+      size: 100
     }).then(res => {
       if(res.data.status === 'success') {
         this.setState({
@@ -63,6 +60,7 @@ class Bill extends Component {
   render() {
     return(
       <div className="bill">
+
         <div className="header">
           账本详情
           <div className="search-box">

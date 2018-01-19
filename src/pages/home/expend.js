@@ -10,7 +10,7 @@ class Expend extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      total: '',
+      total: 0,
       list: []
     }
   }
@@ -19,28 +19,32 @@ class Expend extends Component{
     this.getList();
   }
 
+  back() {
+    this.props.history.push('/home');
+  }
+
   getList() {
     let token = localStorage.getItem('token');
-
-    axios({
-      method: 'post',
-      url: '/api/activity/my-send',
-      params: {
+    axios.post('/api/activity/my-send', {
         token,
         page: 1,
         size: 200
       }
-    }).then(res => {
-      this.setState({
-        list: res.data.data.detail
-      })
+    ).then(res => {
+      if(res.data.status === 'success') {
+        this.setState({
+          total: res.data.data.total,
+          list: res.data.data.detail
+        })
+      }
     })
+
   }
 
   render() {
     return(
       <div className="expend">
-        <Header content="我的随礼"/>
+        <Header content="我的随礼" back={this.back.bind(this)}/>
         <div className="cover">
           <p className="title">我的随礼总金额(元)</p>
           <p className="count">{this.state.total}</p>

@@ -2,11 +2,33 @@
  * Created by nxy on 2018/1/4.
  */
 import React, { Component } from 'react';
+import axios from '../../util/ajax';
 import { Link } from 'react-router-dom';
 import Header from '../../components/header';
 import './css/getOut.css'
 
 class GetOut extends Component{
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      request: false,
+      cardInfo: {}
+    }
+  }
+
+  componentDidMount() {
+    axios.post('',{
+
+    }).then(res => {
+      if(res.data.status === 'success') {
+        this.setState({
+          cardInfo: res.data.data
+        })
+      }
+    })
+  }
+
   render() {
     return(
       <div className="getOut">
@@ -15,6 +37,7 @@ class GetOut extends Component{
           <div className="des-wrap">
             <div className="cover"></div>
             <div className="info">
+              {/*<div className="title">{this.state.cardInfo.name}</div>*/}
               <div className="title">招商银行</div>
               <div className="type">尾号8888储蓄卡</div>
             </div>
@@ -34,8 +57,13 @@ class GetOut extends Component{
           </div>
         </div>
 
-        <div className="getBtn getBtnAble">马上提现</div>
-        <div className="getBtn getBtnDisable">马上提现</div>
+        {
+          this.state.request ? (
+            <div className="getBtn getBtnDisable">马上提现</div>
+          ) : (
+            <div className="getBtn getBtnAble">马上提现</div>
+          )
+        }
       </div>
     )
   }

@@ -24,15 +24,11 @@ class ChooseName extends Component {
 
   save() {
     let token = localStorage.getItem('token');
-    axios({
-      method: 'post',
-      url: '/api/user/set-detail',
-      params: {
-        token: token,
-        type: 3,
-        content: this.state.value
-      }
-    }).then( res => {
+    axios.post('/api/user/set-detail',{
+      token: token,
+      type: 3,
+      content: this.state.value
+    }).then(res => {
       if(res.data.status === 'success') {
         this.props.history.push('/userInfo');
       }

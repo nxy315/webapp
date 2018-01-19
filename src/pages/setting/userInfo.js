@@ -24,14 +24,9 @@ class UserInfo extends Component{
 
   componentDidMount() {
     const token = localStorage.getItem('token');
-
-    axios({
-      method: 'post',
-      url: '/api/user/get-user-detail',
-      params: {
-        token: token
-      }
-    }).then( res => {
+    axios.post('/api/user/get-user-detail',{
+      token
+    }).then(res => {
       if(res.data.status === 'success') {
         let obj = res.data.data;
         if(Number(obj.sex) === 1) {
@@ -96,14 +91,10 @@ class UserInfo extends Component{
   upload(e) {
     let file = e.target.files[0]
     let token = localStorage.getItem('token');
-    axios({
-      method: 'get',
-      url: '/api/user/get-auth',
-      params: {
-        token,
-        type: '1'
-      }
-    }).then( res => {
+    axios.post('/api/user/get-auth',{
+      token,
+      type: '1'
+    }).then(res => {
       if(res.data.status === 'success') {
         if(file) {
           let data = new FormData();
@@ -115,37 +106,16 @@ class UserInfo extends Component{
           axios.post('http://upload.qiniu.com/', data, config).then(res => {
             if(res.status == 200) {
               let url = 'http://p2bkdmc4g.bkt.clouddn.com/'+res.data.hash;
-              axios({
-                method: 'post',
-                url: '/api/user/set-detail',
-                params: {
-                  token,
-                  type: 1,
-                  content: url
-                }
+              axios.post('/api/user/set-detail',{
+                token,
+                type: 1,
+                content: url
               }).then(res => {
-                Toast({
-                  type: 'loading',
-                  typeStatus: 2,
-                  msg: '正在加载'
-                });
                 if(res.data.status === 'success') {
                   this.setState({
                     head_image: url
                   })
-
-                } else {
-                  Toast({
-                    type: 'fail',
-                    msg: res.data.msg
-                  });
                 }
-              }).catch(err => {
-                Toast({
-                  type: 'loading',
-                  typeStatus: 2,
-                  msg: '正在加载'
-                })
               })
             }
           })

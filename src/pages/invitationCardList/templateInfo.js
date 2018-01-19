@@ -2,6 +2,7 @@
  * Created by nxy on 2018/1/4.
  */
 import React, { Component } from 'react';
+import Header from '../../components/header';
 import { Link } from 'react-router-dom';
 import axios from '../../util/ajax';
 import DatePicker from 'react-mobile-datepicker';
@@ -25,6 +26,7 @@ class TemplateInfo extends Component{
       title: '',
       first_name: '',
       second_name: '',
+      third_name: '',
       address: '',
     }
   }
@@ -52,29 +54,31 @@ class TemplateInfo extends Component{
       })
     } else {
       this.setState({
+        type: 1,
         typeText: '结婚'
       })
     }
   }
 
   save() {
-    axios({
-      method: 'post',
-      url: '/api/activity/create-activity',
-      params: {
-        cate_id: this.state.type,
-        title: this.state.title,
-        start_time: this.state.time,
-        address: this.state.address,
-        first_name: this.state.first_name,
-        second_name: this.state.second_name,
-      }
+    axios.post('/api/activity/create-activity',{
+      cate_id: this.state.type,
+      title: this.state.title,
+      start_time: this.state.time,
+      address: this.state.address,
+      first_name: this.state.first_name,
+      second_name: this.state.second_name,
     }).then(res => {
       if(res.data.status === 'success') {
-        this.props.history.push(`/h5${res.data.data}`);
+        this.props.history.push(`/h5/${res.data.data.template_id}/1`);
       }
     })
   }
+
+  back() {
+    this.props.history.push('/beginMake')
+  }
+
   chooseDate() {
     this.setState({ isOpen: true });
   }
@@ -87,16 +91,9 @@ class TemplateInfo extends Component{
     })
   }
 
-  inputTitle(e) {
-    let value = e.target.value;
-    this.setState({
-      title: value
-    })
-  }
-
   handleCancel = () => {
     this.setState({ isOpen: false });
-  }
+  };
 
   handleSelect = (time) => {
     let token = localStorage.getItem('token');
@@ -104,17 +101,10 @@ class TemplateInfo extends Component{
 
     let iWant=d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
     this.setState({ time: iWant, isOpen: false });
-  }
+  };
 
   chooseType() {
     this.props.history.push(`/chooseTypes/${this.state.type}`);
-  }
-
-  inputAddress(e) {
-    let value = e.target.value;
-    this.setState({
-      address: value
-    })
   }
 
   render() {
@@ -139,7 +129,7 @@ class TemplateInfo extends Component{
         <div className="cnm-wrap">
           <div className="bg-white-pd form5">
             <span>寿星名字</span>
-            <input type="text" placeholder="请输入姓名"/>
+            <input type="text" value={this.state.first_name} onChange={this.inputName.bind(this, 'first_name')} placeholder="请输入姓名"/>
           </div>
         </div>
       )
@@ -148,15 +138,15 @@ class TemplateInfo extends Component{
         <div className="cnm-wrap">
           <div className="bg-white-pd form6">
             <span>父亲名字</span>
-            <input type="text" placeholder="请输入姓名"/>
+            <input type="text" value={this.state.first_name} onChange={this.inputName.bind(this, 'first_name')} placeholder="请输入姓名"/>
           </div>
           <div className="bg-white-pd form6">
             <span>母亲名字</span>
-            <input type="text" placeholder="请输入姓名"/>
+            <input type="text" value={this.state.second_name} onChange={this.inputName.bind(this, 'second_name')} placeholder="请输入姓名"/>
           </div>
           <div className="bg-white-pd form6">
             <span>儿女名字</span>
-            <input type="text" placeholder="请输入姓名"/>
+            <input type="text" value={this.state.third_name} onChange={this.inputName.bind(this, 'third_name')} placeholder="请输入姓名"/>
           </div>
         </div>
       )
@@ -165,10 +155,7 @@ class TemplateInfo extends Component{
 
     return (
       <div className="templateInfo">
-        <div className="header">
-          请帖信息
-          <Link to="/h5" style={{color: '#fff'}}>保存</Link>
-        </div>
+        <Header content="请帖信息" save={this.save.bind(this)} back={this.back.bind(this)}/>
 
         <div className="info-form">
           <div onClick={this.chooseType.bind(this)} className="bg-white-pd form1">
@@ -180,7 +167,7 @@ class TemplateInfo extends Component{
           </div>
           <div className="bg-white-pd form2">
             <span>活动标题</span>
-            <input type="text" value={this.state.title} onChange={this.inputTitle.bind(this)} placeholder="(例如：我们结婚了)"/>
+            <input type="text" value={this.state.title} onChange={this.inputName.bind(this, 'title')} placeholder="(例如：我们结婚了/我过生日了)"/>
           </div>
         </div>
 
@@ -195,8 +182,8 @@ class TemplateInfo extends Component{
 
         <div className="address bg-white-pd">
           <div className="title">婚礼地址</div>
-          <input type="text" value={this.state.address} onChange={this.inputAddress.bind(this)} placeholder="请输入婚礼地址，或地图标记"/>
-          <Link to="/map" className="nail"></Link>
+          <input type="text" value={this.state.address} onChange={this.inputName.bind(this, 'address')} placeholder="请输入婚礼地址，或地图标记"/>
+          {/*<Link to="/map" className="nail"></Link>*/}
         </div>
 
         <div ref="templateMap" className="map"></div>

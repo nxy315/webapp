@@ -17,14 +17,9 @@ class MyActivity extends Component {
   }
 
   componentDidMount() {
-
-    axios({
-      url: '/api/activity/get-user-activity-list',
-      method: 'post',
-      params: {
-        page: 1,
-        page_size: 40
-      }
+    axios.post('/api/activity/get-user-activity-list',{
+      page: 1,
+      page_size: 40
     }).then(res => {
       this.setState({
         loading: false
@@ -48,7 +43,7 @@ class MyActivity extends Component {
       block = (
         this.state.list.map((item, i) => {
           return (
-            <Link to={`/H5/${item.id}`} key={i} className="item">
+            <Link to={`/H5/${item.id}/1`} key={i} className="item">
               <div className="left-info">
                 <div className="title-wrap">
                   <strong className="title">{item.title}</strong>

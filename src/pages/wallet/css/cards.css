@@ -53,6 +53,9 @@
     width: 1.2rem;
     height: 1.2rem;
     background-color: #fff;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
     border-radius: 50%;
 }
 .myCards .cards .card .info .des{

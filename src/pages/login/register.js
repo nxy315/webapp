@@ -56,20 +56,12 @@ class Register extends Component{
 
   getCode() {
     if(this.state.correct) {
-      axios({
-        method: 'post',
-        url: '/api/site/get-code',
-        params: {
-          phone: this.state.phone,
-          type: 1
-        }
+      axios.post('/api/site/get-code',{
+        phone: this.state.phone,
+        type: 1
       }).then(res => {
         if(res.data.status === 'success') {
-          // Toast({
-          //   type: 'success',
-          //   msg: '发送成功',
-          //   duration: 2000
-          // })
+
         }
       })
     } else {
@@ -82,15 +74,10 @@ class Register extends Component{
   }
 
   register() {
-
-    axios({
-      method: 'post',
-      url: '/api/site/register',
-      params: {
-        phone: this.state.phone,
-        password: this.state.password,
-        code: this.state.code
-      }
+    axios.post('/api/site/register',{
+      phone: this.state.phone,
+      password: this.state.password,
+      code: this.state.code
     }).then(res => {
       if(res.data.status === 'success') {
         localStorage.setItem("token", res.data.data.token);

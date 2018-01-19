@@ -26,15 +26,11 @@ class ModifyPwd extends Component{
     this.setState({
       ajax: true
     }, () => {
-      axios({
-        method: 'post',
-        url: '/api/user/reset-password',
-        params: {
-          token,
-          old: this.state.old,
-          new: this.state.new,
-          repeat_new: this.state.repeat
-        }
+      axios.post('/api/user/reset-password',{
+        token,
+        old: this.state.old,
+        new: this.state.new,
+        repeat_new: this.state.repeat
       }).then(res => {
         this.setState({
           ajax: false
