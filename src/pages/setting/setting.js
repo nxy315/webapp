@@ -15,6 +15,10 @@ class Setting extends Component {
     }
   }
 
+  back() {
+    this.props.history.push('/center')
+  }
+
   loginOut() {
     let token = localStorage.getItem('token');
     axios.post('/api/site/logout',{
@@ -30,7 +34,7 @@ class Setting extends Component {
   render() {
     return(
       <div className="setting">
-        <Header content="设置"/>
+        <Header content="设置" back={this.back.bind(this)}/>
         <div className="set-wrap">
           <Link to="/safe" className="set-item">安全设置<span className="go"></span></Link>
           <Link to="/userInfo" className="set-item">个人信息<span className="go"></span></Link>

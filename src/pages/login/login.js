@@ -22,6 +22,11 @@ class Login extends Component {
       code: '',
     }
   }
+
+  back() {
+    this.props.history.push('/center');
+  }
+
   phoneChange(e) {
     let telVal = e.target.value;
 
@@ -70,7 +75,7 @@ class Login extends Component {
   render() {
     return (
       <div className="login-wrap">
-        <Header content="登录"/>
+        <Header content="登录" back={this.back.bind(this)}/>
 
         <div className="login-logo-wrap">
           <div className="login-logo"></div>

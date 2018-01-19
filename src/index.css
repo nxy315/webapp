@@ -78,7 +78,7 @@ input{
   justify-content: space-between;
   align-items: center;
   padding: 0 0.5rem;
-  height: 1rem;
+  height: 1.4rem;
   font-size: 0.42rem;
   border-bottom: 1px solid #e6e6e6;
 }
@@ -231,6 +231,10 @@ input{
   width: 6rem;
 }
 /* 正在开发中结束 */
+
+a,a:active{
+  color: #282828;
+}
 
 
 /*fast-out-slow-in: cubic-bezier(0.4, 0.0, 0.2, 1),*/

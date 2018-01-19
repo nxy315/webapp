@@ -6,10 +6,18 @@ import Header from '../../components/header';
 import './css/about.css'
 
 class About extends Component{
+  constructor(props) {
+    super(props);
+
+  }
+
+  back() {
+    this.props.history.push('/setting')
+  }
   render() {
     return(
       <div className="about">
-        <Header content="关于我们"/>
+        <Header content="关于我们" back={this.back.bind(this)}/>
         <div className="logo"></div>
         <div className="logo-text"></div>
 

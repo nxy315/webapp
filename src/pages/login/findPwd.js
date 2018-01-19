@@ -2,14 +2,23 @@
  * Created by nxy on 2018/1/5.
  */
 import React, { Component } from 'react';
+import axios from '../../util/ajax';
 import Header from '../../components/header';
 import './css/login.css';
 
 class FindPwd extends Component{
+  constructor(props) {
+    super(props);
+  }
+
+  back() {
+    this.props.history.push('/login');
+  }
+
   render() {
     return(
       <div className="login-wrap">
-        <Header content="找回密码"/>
+        <Header content="找回密码" back={this.back.bind(this)}/>
 
         <div className="login-logo-wrap">
           <div className="login-logo"></div>

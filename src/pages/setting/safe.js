@@ -7,10 +7,19 @@ import Header from '../../components/header';
 import './css/safe.css';
 
 class Safe extends Component{
+  constructor(props) {
+    super(props);
+
+  }
+
+  back() {
+    this.props.history.push('/setting')
+  }
+
   render() {
     return (
       <div className="safePage">
-        <Header content="安全设置"/>
+        <Header content="安全设置" back={this.back.bind(this)}/>
 
         <ul className="safe-wrap">
           <Link to="/modifyPwd" className="safe-item">修改密码<span className="go"></span></Link>

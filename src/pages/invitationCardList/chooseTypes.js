@@ -17,14 +17,14 @@ class ChooseTypes extends Component{
           id: 1,
           name: '结婚'
         },
-        {
-          id: 2,
-          name: '生日(成人)'
-        },
-        {
-          id: 3,
-          name: '生日(儿童)'
-        }
+        // {
+        //   id: 2,
+        //   name: '生日(成人)'
+        // },
+        // {
+        //   id: 3,
+        //   name: '生日(儿童)'
+        // }
       ]
     }
   }

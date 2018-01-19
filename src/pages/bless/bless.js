@@ -2,15 +2,38 @@
  * Created by nxy on 2018/1/4.
  */
 import React, { Component } from 'react';
+import axios from '../../util/ajax';
 import { Link } from 'react-router-dom';
 import Header from '../../components/header';
 import './bless.css';
 
 class Bless extends Component{
+  constructor(props) {
+    super(props);
+
+    this.state = {
+
+    }
+  }
+
+  componentDidMount() {
+    // axios.post('',{
+    //
+    // }).then(res => {
+    //   if(res.data.status === 'success') {
+    //
+    //   }
+    // })
+  }
+
+  back() {
+    this.props.history.push('/home');
+  }
+
   render() {
     return (
       <div className="bless">
-        <Header content="宾客祝福"/>
+        <Header content="宾客祝福" back={this.back.bind(this)}/>
         <Link to="" className="toH5">我的活动 <span className="red">“我们结婚了”</span></Link>
 
         <p className="block"></p>

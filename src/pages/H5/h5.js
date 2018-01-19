@@ -35,7 +35,7 @@ class H5 extends Component{
   }
 
   componentDidMount() {
-    wxinit();
+    // wxinit();
     let id = this.props.match.params.id;
     let edit = this.props.match.params.edit;
     if(edit) {
@@ -100,7 +100,7 @@ class H5 extends Component{
 
     // citylocation.searchLocalCity();
 
-    wxinit()
+    // wxinit()
     // wxinit(() => {
     //   wx.onMenuShareTimeline({
     //     title: '朋友圈测试标题', // 分享标题
@@ -288,72 +288,70 @@ class H5 extends Component{
       <div className="H5" id="h5">
         {/*<div onClick={this.pay.bind(this)}>支付</div>*/}
         {/*<div onClick={this.openLocation.bind(this)}>打开地图</div>*/}
-        {this.state.seat}
         {/*<audio src="http://p15nw7thi.bkt.clouddn.com/music/sys_music/911 - I Do.mp3" autoplay="autoplay"></audio>*/}
         <input type="file" ref="file" accept="image/*" onChange={this.qiniuUpload.bind(this)} style={{display: 'none'}}/>
         <div className="firstPage">
 
         </div>
         <div className={`pageWrap ${(this.state.red_part || this.state.send_money || this.state.qrcodePage) ? 'blur':''}`} onTouchStart={this.moveStart.bind(this)} onTouchMove={this.moveIng.bind(this)} onTouchEnd={this.moveEnd.bind(this)}>
-
-          {/*{*/}
-            {/*this.state.pages.map((item, i) => {*/}
-              {/*return (*/}
-                {/*<div key={i} className={`animated page page${i} ${Number(this.state.seat) === i ? 'active fadeIn' : 'fadeOut'}`}>*/}
-                  {/*{*/}
-                    {/*item.elements.map((itm, j) => {*/}
-                      {/*return (*/}
-                        {/*<div className={`ele_wrap ele_${i}_${j}`} key={j}>*/}
-                          {/*<div className={`animated filp ele_wrap_${i}_${j}`}>*/}
-                            {/*<img className="cover" src={itm.img} ref={i+'_'+j}/>*/}
-                          {/*</div>*/}
-                          {/*{*/}
-                            {/*itm.is_edit == '1' ? (*/}
-                              {/*<div id={`editImg_${i}_${j}`} className='editImg' onClick={this.editCover.bind(this, i, j, itm.id)}>编辑</div>*/}
-                            {/*) : ''*/}
-                          {/*}*/}
-                        {/*</div>*/}
-                      {/*)*/}
-                    {/*})*/}
-                  {/*}*/}
-                {/*</div>*/}
-              {/*)*/}
-            {/*})*/}
-          {/*}*/}
-          <div className="lastPage">
-            <div className="contentWrap">
-              <h1 className="t1">WELCOME</h1>
-              <p className="t2">2018年01月01日</p>
-              <p className="t3">上海陆家嘴大酒店</p>
-              <div ref="sharemap" className="map"></div>
-              <h4 className="t4">是否赴宴</h4>
-              <ul className="statusWrap">
-                <li className="statusItem active">赴宴</li>
-                <li className="statusItem">待定</li>
-                <li className="statusItem">有事</li>
-              </ul>
-              <div className="t5">
-                <div className="c1">导航</div>
-                <div className="c2">
-                  <div className="xiicon"></div>
-                  随礼
+          {
+            this.state.pages.map((item, i) => {
+              return (
+                <div key={i} className={`animated page page${i} ${Number(this.state.seat) === i ? 'active fadeIn' : 'fadeOut'}`}>
+                  {
+                    item.elements.map((itm, j) => {
+                      return (
+                        <div className={`ele_wrap ele_${i}_${j}`} key={j}>
+                          <div className={`ele_wrap_item animated ele_wrap_${i}_${j}`}>
+                            <img className="cover" src={itm.img} ref={i+'_'+j}/>
+                          </div>
+                          {
+                            (this.state.edit == 2) ? (
+                              <div id={`editImg_${i}_${j}`} className='editImg' onClick={this.editCover.bind(this, i, j, itm.id)}>编辑</div>
+                            ) : ''
+                          }
+                        </div>
+                      )
+                    })
+                  }
                 </div>
-              </div>
-            </div>
-          </div>
+              )
+            })
+          }
+          {/*<div className="lastPage">*/}
+            {/*<div className="contentWrap">*/}
+              {/*<h1 className="t1">WELCOME</h1>*/}
+              {/*<p className="t2">2018年01月01日</p>*/}
+              {/*<p className="t3">上海陆家嘴大酒店</p>*/}
+              {/*<div ref="sharemap" className="map"></div>*/}
+              {/*<h4 className="t4">是否赴宴</h4>*/}
+              {/*<ul className="statusWrap">*/}
+                {/*<li className="statusItem active">赴宴</li>*/}
+                {/*<li className="statusItem">待定</li>*/}
+                {/*<li className="statusItem">有事</li>*/}
+              {/*</ul>*/}
+              {/*<div className="t5">*/}
+                {/*<div className="c1">导航</div>*/}
+                {/*<div className="c2">*/}
+                  {/*<div className="xiicon"></div>*/}
+                  {/*随礼*/}
+                {/*</div>*/}
+              {/*</div>*/}
+            {/*</div>*/}
+          {/*</div>*/}
         </div>
         {
-          (this.state.seat == 0 || this.state.seat == (this.state.pages.length - 1) && this.state.edit == 2) ? '' : (
-            <div className="bless-foot">
-              <div className="bless-input-wrap">
-                请留下你的祝福
-              </div>
-              <div className="payBtn" onClick={this.openPay.bind(this)}>
-                <div className="xiicon"></div>
-                <div>随礼</div>
-              </div>
-            </div>
-          )
+          // (this.state.seat == 0 || this.state.seat == (this.state.pages.length - 1) && this.state.edit == 2) ? '' : (
+          //   <div className="bless-foot">
+          //     <div className="bless-input-wrap">
+          //       请留下你的祝福
+          //     </div>
+          //     <div className="payBtn" onClick={this.openPay.bind(this)}>
+          //       <div className="xiicon"></div>
+          //       <div>随礼</div>
+          //     </div>
+          //   </div>
+          // )
         }
         {/*<div className="bless-foot">*/}
           {/*<div className="bless-input-wrap">*/}

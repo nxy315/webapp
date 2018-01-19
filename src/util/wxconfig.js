@@ -5,11 +5,7 @@ import wx from 'weixin-js-sdk';
 import axios from 'axios';
 
 let wxinit = function(callback) {
-
-  axios({
-    url: '/api/pay/init-wx?url='+encodeURIComponent(window.location.href.split('#')[0])+'&time='+Math.random(),
-    method: 'post',
-  }).then(res => {
+  axios.post('/api/pay/init-wx?url='+encodeURIComponent(window.location.href.split('#')[0])+'&time='+Math.random(),{}).then(res => {
     if(res.data.status == 'success') {
       wx.config({
         debug: true,
@@ -29,7 +25,6 @@ let wxinit = function(callback) {
       })
 
     }
-  });
-
+  })
 };
 export default wxinit;

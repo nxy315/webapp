@@ -7,6 +7,19 @@ import TabBar from '../../components/tabBar'
 import './css/beginMake.css';
 
 class BeginMake extends Component{
+  constructor(props) {
+    super(props);
+  }
+
+  toCreate() {
+    let token = localStorage.getItem('token');
+    if(token) {
+      this.props.history.push('/templateInfo');
+    } else {
+      this.props.history.push('/');
+    }
+  }
+
   render() {
     return(
       <div className="beginMake">

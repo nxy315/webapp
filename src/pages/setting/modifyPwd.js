@@ -20,6 +20,10 @@ class ModifyPwd extends Component{
   componentDidMount() {
   }
 
+  back() {
+    this.props.history.push('/safe')
+  }
+
   saveChange() {
     let that = this;
     let token = localStorage.getItem('token');
@@ -59,7 +63,7 @@ class ModifyPwd extends Component{
   render() {
     return(
       <div className="modify modifyPwd">
-        <Header content="修改密码"/>
+        <Header content="修改密码" back={this.back.bind(this)}/>
 
         <div className="input-box special">
           <input type="text" value={this.state.old} onChange={this.inputChange.bind(this, 'old')} placeholder="请输入正确的原密码"/>

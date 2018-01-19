@@ -60,6 +60,14 @@ class TemplateInfo extends Component{
     }
   }
 
+  rounding(num) {
+    if(Number(num) < 10) {
+      return '0'+num.toString();
+    } else {
+      return num.toString();
+    }
+  }
+
   save() {
     axios.post('/api/activity/create-activity',{
       cate_id: this.state.type,
@@ -99,7 +107,7 @@ class TemplateInfo extends Component{
     let token = localStorage.getItem('token');
     let d = new Date(time);
 
-    let iWant=d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+    let iWant=d.getFullYear() + '-' + (this.rounding(d.getMonth() + 1)) + '-' + this.rounding(d.getDate());
     this.setState({ time: iWant, isOpen: false });
   };
 
@@ -167,7 +175,7 @@ class TemplateInfo extends Component{
           </div>
           <div className="bg-white-pd form2">
             <span>活动标题</span>
-            <input type="text" value={this.state.title} onChange={this.inputName.bind(this, 'title')} placeholder="(例如：我们结婚了/我过生日了)"/>
+            <input type="text" value={this.state.title} onChange={this.inputName.bind(this, 'title')} placeholder="(例如：我们结婚了)"/>
           </div>
         </div>
 

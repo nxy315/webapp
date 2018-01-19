@@ -51,12 +51,24 @@ class UserInfo extends Component{
     })
   }
 
+  back() {
+    this.props.history.push('/setting')
+  }
+
   chooseSex() {
     this.props.history.push('/chooseSex')
   }
 
   chooseDate() {
     this.setState({ isOpen: true });
+  }
+
+  rounding(num) {
+    if(Number(num) < 10) {
+      return '0'+num.toString();
+    } else {
+      return num.toString();
+    }
   }
 
   handleCancel = () => {
@@ -67,17 +79,13 @@ class UserInfo extends Component{
     let token = localStorage.getItem('token');
     let d = new Date(time);
 
-    let iWant=d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+    let iWant=d.getFullYear() + '-' + (this.rounding(d.getMonth() + 1)) + '-' + this.rounding(d.getDate());
     this.setState({ time: iWant, isOpen: false });
 
-    axios({
-      method: 'post',
-      url: '/api/user/set-detail',
-      params: {
-        token,
-        type: 5,
-        content: iWant
-      }
+    axios.post('/api/user/set-detail',{
+      token,
+      type: 5,
+      content: iWant
     }).then(res => {
       if(res.data.status === 'success') {
 
@@ -127,7 +135,7 @@ class UserInfo extends Component{
   render() {
     return(
       <div className="userInfo">
-        <Header content="个人信息"/>
+        <Header content="个人信息" back={this.back.bind(this)}/>
         <input type="file" accept="image/*" ref="headImg" onChange={this.upload.bind(this)} style={{display: 'none'}}/>
         <div className="avator-wrap" onClick={this.trigger.bind(this)}>
           <span>点击可修改</span>

@@ -14,6 +14,10 @@ class ChooseName extends Component {
     }
   }
 
+  back() {
+    this.props.history.push('/userInfo');
+  }
+
   inputChange(e) {
     let value = e.target.value;
 
@@ -38,7 +42,7 @@ class ChooseName extends Component {
   render() {
     return(
       <div className="changeWrap">
-        <Header content="修改名字" save={this.save.bind(this)}/>
+        <Header content="修改名字" back={this.back.bind(this)} save={this.save.bind(this)}/>
         <input className="changeInput" value={this.state.value} onChange={this.inputChange.bind(this)} type="text"/>
       </div>
     )

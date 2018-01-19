@@ -36,6 +36,10 @@ class ChooseSex extends Component {
     localStorage.removeItem('sex');
   }
 
+  back() {
+    this.props.history.push('/userInfo')
+  }
+
   choose(i) {
     let token = localStorage.getItem('token');
     axios.post('/api/user/set-detail',{
@@ -52,7 +56,7 @@ class ChooseSex extends Component {
   render() {
     return(
       <div className="chooseSex">
-        <Header content="修改性别"/>
+        <Header content="修改性别" back={this.back.bind(this)}/>
 
         <div className="chooseComponent">
           {

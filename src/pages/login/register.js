@@ -22,6 +22,10 @@ class Register extends Component{
     }
   }
 
+  back() {
+    this.props.history.push('/center')
+  }
+
   codeChange(e) {
     let codeVal = e.target.value;
 
@@ -90,7 +94,7 @@ class Register extends Component{
   render() {
     return(
       <div className="login-wrap">
-        <Header content="注册"/>
+        <Header content="注册" back={this.back.bind(this)}/>
 
         <div className="login-logo-wrap">
           <div className="login-logo"></div>
