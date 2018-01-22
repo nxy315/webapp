@@ -43,7 +43,7 @@ class MyActivity extends Component {
       block = (
         this.state.list.map((item, i) => {
           return (
-            <Link to={`/H5/${item.id}/1`} key={i} className="item">
+            <Link to={`/H5/${item.template_id}/${item.id}/1`} key={i} className="item">
               <div className="left-info">
                 <div className="title-wrap">
                   <strong className="title">{item.title}</strong>

@@ -1,0 +1,36 @@
+.isLogin{
+    width: 100vw;
+    height: 100vh;
+    background: url("../images/islogin.png") no-repeat center;
+    background-size: cover;
+}
+.isLogin .wrap{
+    position: fixed;
+    bottom: 1.4rem;
+    left: 0;
+    width: 100%;
+    height: 1.4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.isLogin .wrap .btn{
+    width: 4.5rem;
+    height: 1.4rem;
+    line-height: 1.4rem;
+    text-align: center;
+    font-size: 0.58rem;
+    color: #fff;
+    font-weight: normal;
+    border-radius: 0.1rem;
+}
+.isLogin .wrap .login{
+    margin-right: 0.28rem;
+    background: linear-gradient(to right bottom, #fe2c85, #fd5f75);
+    box-shadow: 0 0.03rem 0.06rem 0.03rem #f8cdc8;
+}
+.isLogin .wrap .register{
+    background: linear-gradient(to right bottom, #fd572b, #fea820);
+    box-shadow: 0 0.03rem 0.06rem 0.03rem #f7c8c4;
+}

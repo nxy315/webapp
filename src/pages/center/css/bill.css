@@ -1,5 +1,9 @@
 .bill{
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
     padding-top: 1.36rem;
+    background-color: #fff;
 }
 .bill .header{
     box-sizing: border-box;
@@ -92,6 +96,7 @@
 }
 .bill .bill-list{
     background-color: #fff;
+    overflow: scroll;
 }
 .bill .bill-list .item{
     padding: 0 0.5rem;
@@ -177,4 +182,25 @@
 }
 .bill .bill-list .item .des-info .des-date{
     color: #b3b3b3;
+}
+
+
+.bill .noResultWrap{
+    padding-top: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.bill .noResultWrap .noResult{
+    margin-bottom: 0.3rem;
+    width: 3.35rem;
+    height: 3.02rem;
+    background: url("../../../static/noresult.png") no-repeat center;
+    background-size: contain;
+}
+.bill .noResultWrap .noResultText{
+    font-size: 0.48rem;
+    color: #666;
 }

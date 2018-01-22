@@ -50,7 +50,7 @@ class Home extends Component {
               <span className="m">￥</span>
               0.00
             </div>
-            <Link to="/bill" className="money-detail">查看详情</Link>
+            <Link to="/bill/1" className="money-detail">查看详情</Link>
           </div>
         </div>
 

@@ -110,13 +110,22 @@
 }
 .templateInfo .address{
     margin-top: 0.15rem;
-    padding: 0 0 0 0.36rem;
+    padding: 0 0.36rem 0 0.36rem;
     font-size: 0.4rem;
     height: 1.4rem;
 }
 
 .templateInfo .address input{
     margin-left: 0.4rem;
+}
+.templateInfo .address .search{
+    width: 1.5rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    text-align: center;
+    color: #fff;
+    border-radius: 0.1rem;
+    background-color: #fd2754;
 }
 
 .templateInfo .address .nail{

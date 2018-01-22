@@ -16,6 +16,7 @@ import BillDetail from './pages/center/billDetail';
 import MyArticle from './pages/center/myArticle';
 import Wallet from './pages/wallet/wallet';
 import Login from './pages/login/login';
+import IsLogin from './pages/login/isLogin';
 import InvitationCardList from './pages/invitationCardList/invitationCardList';
 import TemplateInfo from './pages/invitationCardList/templateInfo';
 import Bless from './pages/bless/bless';
@@ -63,14 +64,15 @@ ReactDOM.render(
         <Route path="/findPart" component={FindPart}></Route>
         <Route path="/invitation" component={Invitation}></Route>
         <Route path="/myActivity" component={MyActivity}></Route>
-        <Route path="/bill/:id?" component={Bill}></Route>
+        <Route path="/bill/:route?/:id?" component={Bill}></Route>
         <Route path="/billList" component={BillList}></Route>
         <Route path="/billDetail" component={BillDetail}></Route>
         <Route path="/myArticle" component={MyArticle}></Route>
         <Route path="/wallet" component={Wallet}></Route>
         <Route path="/login" component={Login}></Route>
+        <Route path="/isLogin" component={IsLogin}></Route>
         <Route path="/invitationCardList" component={InvitationCardList}></Route>
-        <Route path="/templateInfo/:type?" component={TemplateInfo}></Route>
+        <Route path="/templateInfo/:type?/:templateId?" component={TemplateInfo}></Route>
         <Route path="/bless" component={Bless}></Route>
         <Route path="/systemMsg" component={SystemMsg}></Route>
         <Route path="/marryRegister" component={MarryRegister}></Route>
@@ -95,9 +97,9 @@ ReactDOM.render(
         <Route path="/findPwd" component={FindPwd}></Route>
         <Route path="/chooseTypes/:type?" component={ChooseTypes}></Route>
         <Route path="/beginMake" component={BeginMake}></Route>
-        <Route path="/H5/:id?/:edit?" component={H5}></Route>
-        <Route path="/h5Set/:id?" component={H5Set}></Route>
-        <Route path="/music" component={Music}></Route>
+        <Route path="/H5/:id?/:aid?/:edit?" component={H5}></Route>
+        <Route path="/h5Set/:id?/:activity?" component={H5Set}></Route>
+        <Route path="/music/:id?/:aid?/:musicid?" component={Music}></Route>
         <Route path="/preview" component={Preview}></Route>
         <Route path="/noAccess" component={NoAccess}></Route>
         <Route path="/map/:lat?/:lng?" component={Map}></Route>

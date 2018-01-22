@@ -58,7 +58,7 @@ class BillList extends Component {
               <div className="item-col date">
                 <span className="des">日期&nbsp;/&nbsp;</span>
                 <span className="black">{item.start_time}</span>
-                <Link to={`/bill/${item.id}`} className="checkout red">查看账本</Link>
+                <Link to={`/bill/${item.id}/2`} className="checkout red">查看账本</Link>
               </div>
             </li>
           )

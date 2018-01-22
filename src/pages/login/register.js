@@ -85,8 +85,11 @@ class Register extends Component{
     }).then(res => {
       if(res.data.status === 'success') {
         localStorage.setItem("token", res.data.data.token);
-        console.log('注册成功');
         this.props.history.push('/center')
+      } else {
+        if(res.data.data.code && res.data.data.code == '1002') {
+          this.props.history.push('/login');
+        }
       }
     })
   }

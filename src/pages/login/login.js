@@ -67,6 +67,10 @@ class Login extends Component {
         if(res.data.status === 'success') {
           localStorage.setItem('token', res.data.data.token);
           this.props.history.push('/center');
+        } else {
+          if(res.data.data.code && res.data.data.code == '1001') {
+            this.props.history.push('/register');
+          }
         }
       })
     }

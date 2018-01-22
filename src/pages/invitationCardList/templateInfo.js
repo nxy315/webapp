@@ -12,7 +12,9 @@ class TemplateInfo extends Component{
   constructor(props) {
     super(props);
     this.state = {
+      templateId: null,
       time: '',
+      timetamp: 0,
       head_image: '',
       nowDate: new Date(),
       isOpen: false,
@@ -28,6 +30,10 @@ class TemplateInfo extends Component{
       second_name: '',
       third_name: '',
       address: '',
+
+      map: null,
+      search: null,
+      marker: null
     }
   }
 
@@ -46,7 +52,18 @@ class TemplateInfo extends Component{
     });
 
     let type = this.props.match.params.type;
+    let templateId = this.props.match.params.templateId;
+    if(templateId) {
+      this.setState({
+        templateId
+      },() => {
+        axios.post('/api/activity/get-detail-by-activity-id',{
+          template_id: templateId
+        }).then(res => {
 
+        })
+      })
+    }
     if(type) {
       this.setState({
         typeText: this.state.typeObj[type],
@@ -78,12 +95,13 @@ class TemplateInfo extends Component{
       second_name: this.state.second_name,
     }).then(res => {
       if(res.data.status === 'success') {
-        this.props.history.push(`/h5/${res.data.data.template_id}/1`);
+        this.props.history.push(`/H5/${res.data.data.template_id}/${res.data.data.activity_id}/1`);
       }
     })
   }
 
   back() {
+
     this.props.history.push('/beginMake')
   }
 
@@ -106,6 +124,7 @@ class TemplateInfo extends Component{
   handleSelect = (time) => {
     let token = localStorage.getItem('token');
     let d = new Date(time);
+    console.log(parseInt(d.getTime()/1000));
 
     let iWant=d.getFullYear() + '-' + (this.rounding(d.getMonth() + 1)) + '-' + this.rounding(d.getDate());
     this.setState({ time: iWant, isOpen: false });
@@ -113,6 +132,10 @@ class TemplateInfo extends Component{
 
   chooseType() {
     this.props.history.push(`/chooseTypes/${this.state.type}`);
+  }
+
+  getPos() {
+
   }
 
   render() {
@@ -190,8 +213,8 @@ class TemplateInfo extends Component{
 
         <div className="address bg-white-pd">
           <div className="title">婚礼地址</div>
-          <input type="text" value={this.state.address} onChange={this.inputName.bind(this, 'address')} placeholder="请输入婚礼地址，或地图标记"/>
-          {/*<Link to="/map" className="nail"></Link>*/}
+          <input type="text" value={this.state.address} onChange={this.inputName.bind(this, 'address')} placeholder="请输入婚礼地址（省/市/县/地名）"/>
+          <div className="search" onClick={this.getPos.bind(this)}>搜索</div>
         </div>
 
         <div ref="templateMap" className="map"></div>
